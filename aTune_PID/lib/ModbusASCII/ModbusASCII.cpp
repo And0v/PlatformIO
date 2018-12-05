@@ -10,31 +10,32 @@ ModbusASCII::ModbusASCII() {
 
 bool ModbusASCII::receive(byte* frame) {
     if (frame[0] != 0x3A) {
-		return false;
-	}
-
+		    return false;
+	  }
     //first byte of frame = address
     byte address = ascii2byte(frame+1);
-
     //Last one bytes = crc
-    byte lrc = (frame[_len - 3]);
+    byte lrc = ascii2byte(&frame[_len - 4]);
 
     //Slave Check
     if ((address != 0xFF)&&(address != getSlaveId())) {
-		return false;
-	}
+	 	  return false;
+	  }
 
-    //CRC Check
-    if (lrc != this->calcLRC(_frame+1, _len-4)) {
-		return false;
-    }
+
     frame[0] = address;
     address = 1;
-    while (address < _len -3){
-       frame[address] = ascii2byte(frame+address);
-       address+=2;
+    byte off = 3;
+    while (off < _len-4){
+       frame[address] = ascii2byte(frame+off);
+       off+=2;
+       ++address;
     }
 
+    //CRC Check
+    if (lrc != this->calcLRC(_frame, address)) {
+  		return false;
+    }
     //PDU starts after first byte
     //framesize PDU = framesize - address(1) - crc(2)
     this->receivePDU(frame+1);
@@ -83,14 +84,17 @@ byte ModbusASCII::calcLRC(byte *auchMsg, unsigned short usDataLen)
 										/* bytes in message      */
 {
 	byte uchLRC = 0 ;	/* LRC char initialized   */
-	while (usDataLen--)		/* pass through message  */ 
-		uchLRC += *auchMsg++ ;	/* buffer add buffer byte*/ 
+	while (usDataLen--)		/* pass through message  */{
+    byte b= *auchMsg++;
+    Serial.write(b);
+		uchLRC += b;//*auchMsg++ ;	/* buffer add buffer byte*/
 										/* without carry         */
+                  }
 	return ((unsigned char)(-uchLRC));
 										/* return twos complemen */
 }
 byte ModbusASCII::ascii2byte(byte *auchMsg){
-    byte i = 1;
+    byte i = 0;
     byte rst = 0;
     do{
         rst <<= 4;
@@ -99,7 +103,6 @@ byte ModbusASCII::ascii2byte(byte *auchMsg){
         }else if ((auchMsg[i] <= 'F')&&(auchMsg[i] >= 'A')){
             rst += (auchMsg[i]-'A'+0x0A);
         }
-    }while (i-- != 255);
+    }while (++i < 2);
     return rst;
 }
-

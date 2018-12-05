@@ -27,7 +27,8 @@ bool ModbusRTU::config(Stream* port ){
 
 
 bool ModbusRTU::receive(byte* frame) {
-    //first byte of frame = address
+
+//first byte of frame = address
     byte address = frame[0];
     //Last two bytes = crc
     u_int crc = ((frame[_len - 2] << 8) | frame[_len - 1]);
@@ -95,8 +96,11 @@ void ModbusRTU::task() {
 
     byte i;
     _frame = (byte*) malloc(_len);
-    for (i=0 ; i < _len ; i++) _frame[i] = (*_port).read();
-    
+
+    for (i=0 ; i < _len ; i++){
+      _frame[i] = (*_port).read();
+    }
+
     if (this->receive(_frame)) {
         if (_reply == MB_REPLY_NORMAL){
             this->sendPDU(_frame);
