@@ -18,6 +18,7 @@ class ModbusASCII : public ModbusRTU {
         void send(byte* frame);
 		byte calcLRC(byte *auchMsg, unsigned short usDataLen);
 		byte ascii2byte(byte *auchMsg);
+    void byte2ascii(byte data, byte *auchMsg);   
 };
 
 #endif //MODBUSRTU_H

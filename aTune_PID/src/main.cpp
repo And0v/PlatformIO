@@ -124,7 +124,7 @@ void setup()
 
      // Set ledPin mode
   pinMode(powerPin, OUTPUT);
-
+  Serial.println("Setup compelete!");
 }
 float getTemp(DeviceAddress deviceAddress)
 {
@@ -276,13 +276,12 @@ void loopWiFi()
     mb.config(&client);
     // buf.init();                               // initialize the circular buffer
     // while (client.connected()) {              // loop while the client's connected
-      mb.task();
+   mb.task();
       // while (client.available()) {               // if there's bytes to read from the client,
       // }
     // }
 
     // close the connection
     // client.stop();
-//test comment
   // }
 }

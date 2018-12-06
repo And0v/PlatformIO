@@ -57,24 +57,12 @@ void ModbusASCII::send(byte* frame) {
 void ModbusASCII::sendPDU(byte* pduframe) {
 
     _buff[0] = _slaveId;
-    //Send slaveId
-    // (*_port).write(_slaveId);
-
-    //Send PDU
     strncpy((char *)&_buff[1], (const char *)pduframe, _len);
-    // byte i;
-    // for (i = 0 ; i < _len ; i++) {
-    //     (*_port).write(pduframe[i]);
-    // }
-
     //Send CRC
     word crc = calcCrc(_slaveId, _frame, _len);
-    // (*_port).write(crc >> 8);
-    // (*_port).write(crc & 0xFF);
     _buff[_len+1] =(crc >> 8);
     _buff[_len+2] =(crc & 0xFF);
     (*_port).write(_buff, _len+3);
-
     (*_port).flush();
 }
 
@@ -105,4 +93,19 @@ byte ModbusASCII::ascii2byte(byte *auchMsg){
         }
     }while (++i < 2);
     return rst;
+}
+void  ModbusASCII::byte2ascii(byte data, byte *auchMsg){
+    byte i = 0;
+    byte shift = 0;
+
+    do{
+        byte d = ((data >> shift) & 0x0F);
+
+        if (d <= 9){
+            auchMsg[i] = ('0'+d);
+        }else {
+            auchMsg[i] = ('A'+d);
+        }
+        shift += 4;
+    }while (++i < 2);
 }
