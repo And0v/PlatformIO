@@ -44,31 +44,23 @@ bool ModbusASCII::receive(byte* frame) {
     return true;
 }
 
-void ModbusASCII::send(byte* frame) {
-    byte i;
-
-    for (i = 0 ; i < _len ; i++) {
-        (*_port).write(frame[i]);
-    }
-
-    (*_port).flush();
-}
-
 void ModbusASCII::sendPDU(byte* pduframe) {
+    word lrc = calcLRC(_frame, _len);
+    lrc = ~lrc;
+    lrc +=_slaveId;
+    lrc = ~lrc;
 
-    byte * buff = (byte*)malloc(_len*2+4);
-    buff[0] = ':';
-    byte * pBuff = buff+1;
-    byte2ascii(_slaveId, pBuff++);
+    buff[_len*2+5] =0x0D;
+    buff[_len*2+6] =0x0A;
+    byte2ascii(lrc, buff+_len*2+3);
 
-    for (size_t i = 0; i < _len; i++) {
-        byte2ascii(pduframe[i], pBuff);
-        pBuff += 2;
+    for(int8_t i = 0;i < _len; ++i){
+        byte2ascii(pduframe[i], buff+i*2+3);
     }
+    byte2ascii(_slaveId, buff+1);
+    buff[0] = ':';
     //Send CRC
-    byte lrc = calcLRC(pduframe, _len);
-
-    (*_port).write(buff, _len+3);
+    (*_port).write(buff, _len*2+7);
     (*_port).flush();
 
     free(buff);
@@ -82,13 +74,11 @@ byte ModbusASCII::calcLRC(byte *auchMsg, unsigned short usDataLen)
 										/* bytes in message      */
 {
 	byte uchLRC = 0 ;	/* LRC char initialized   */
-	while (usDataLen--)		/* pass through message  */{
-    byte b= *auchMsg++;
-    Serial.write(b);
-		uchLRC += b;//*auchMsg++ ;	/* buffer add buffer byte*/
+	while (usDataLen--){		/* pass through message  */
+        uchLRC +=  *auchMsg++;	/* buffer add buffer byte*/
 										/* without carry         */
-                  }
-	return ((unsigned char)(-uchLRC));
+    }
+	return ((byte)(-uchLRC));
 										/* return twos complemen */
 }
 byte ModbusASCII::ascii2byte(byte *auchMsg){
@@ -106,7 +96,7 @@ byte ModbusASCII::ascii2byte(byte *auchMsg){
 }
 void  ModbusASCII::byte2ascii(byte data, byte *auchMsg){
     byte i = 0;
-    byte shift = 0;
+    byte shift = 4;
 
     do{
         byte d = ((data >> shift) & 0x0F);
@@ -114,8 +104,8 @@ void  ModbusASCII::byte2ascii(byte data, byte *auchMsg){
         if (d <= 9){
             auchMsg[i] = ('0'+d);
         }else {
-            auchMsg[i] = ('A'+d);
+            auchMsg[i] = ('A'+d-10);
         }
-        shift += 4;
+        shift -= 4;
     }while (++i < 2);
 }

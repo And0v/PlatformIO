@@ -62,28 +62,16 @@ void ModbusRTU::send(byte* frame) {
 }
 
 void ModbusRTU::sendPDU(byte* pduframe) {
-
-    byte * buff = (byte*)malloc(_len+4);
     buff[0] = _slaveId;
-    //Send slaveId
-    // (*_port).write(_slaveId);
-
-    //Send PDU
     strncpy((char *)&buff[1], (const char *)pduframe, _len);
-    // byte i;
-    // for (i = 0 ; i < _len ; i++) {
-    //     (*_port).write(pduframe[i]);
-    // }
 
     //Send CRC
     word crc = calcCrc(_slaveId, _frame, _len);
-    // (*_port).write(crc >> 8);
-    // (*_port).write(crc & 0xFF);
     buff[_len+1] =(crc >> 8);
     buff[_len+2] =(crc & 0xFF);
     (*_port).write(buff, _len+3);
     (*_port).flush();
-    free(buff);
+
 }
 
 void ModbusRTU::task() {

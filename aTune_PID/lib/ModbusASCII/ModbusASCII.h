@@ -14,7 +14,7 @@ class ModbusASCII : public ModbusRTU {
     public:
         ModbusASCII();
         virtual bool receive(byte* frame);
-        void sendPDU(byte* pduframe);
+        virtual void sendPDU(byte* pduframe);
         void send(byte* frame);
 		byte calcLRC(byte *auchMsg, unsigned short usDataLen);
 		byte ascii2byte(byte *auchMsg);

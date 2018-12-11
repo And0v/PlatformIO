@@ -13,7 +13,7 @@ class ModbusRTU : public Modbus {
         Stream* _port;
         byte  _slaveId;
         word calcCrc(byte address, byte* pduframe, byte pdulen);
-
+		    byte buff[20];
     public:
         ModbusRTU();
         bool setSlaveId(byte slaveId);
@@ -21,7 +21,7 @@ class ModbusRTU : public Modbus {
         bool config(Stream* port);
         void task();
         virtual bool receive(byte* frame);
-        void sendPDU(byte* pduframe);
+        virtual void sendPDU(byte* pduframe);
         void send(byte* frame);
 };
 
