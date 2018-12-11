@@ -63,9 +63,6 @@ void ModbusASCII::sendPDU(byte* pduframe) {
     (*_port).write(buff, _len*2+7);
     (*_port).flush();
 
-    free(buff);
-
-
 }
 
 byte ModbusASCII::calcLRC(byte *auchMsg, unsigned short usDataLen)
