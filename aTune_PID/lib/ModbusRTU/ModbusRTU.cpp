@@ -71,7 +71,7 @@ void ModbusRTU::sendPDU(byte* pduframe) {
     buff[_len+2] =(crc & 0xFF);
     (*_port).write(buff, _len+3);
     (*_port).flush();
-    
+
 }
 
 void ModbusRTU::task() {

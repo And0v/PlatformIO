@@ -13,7 +13,7 @@ class ModbusRTU : public Modbus {
         Stream* _port;
         byte  _slaveId;
         word calcCrc(byte address, byte* pduframe, byte pdulen);
-		byte buff[20];
+		    byte buff[20];
     public:
         ModbusRTU();
         bool setSlaveId(byte slaveId);

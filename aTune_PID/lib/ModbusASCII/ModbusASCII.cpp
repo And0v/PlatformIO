@@ -33,7 +33,7 @@ bool ModbusASCII::receive(byte* frame) {
     }
 
     //CRC Check
-    if (lrc != this->calcLRC(_frame, address)) {
+    if (lrc != this->calcLRC(frame, address)) {
   		return false;
     }
     //PDU starts after first byte
@@ -62,6 +62,7 @@ void ModbusASCII::sendPDU(byte* pduframe) {
     //Send CRC
     (*_port).write(buff, _len*2+7);
     (*_port).flush();
+
 }
 
 byte ModbusASCII::calcLRC(byte *auchMsg, unsigned short usDataLen)
