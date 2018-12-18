@@ -1,7 +1,7 @@
 
 #include "Arduino.h"
 #include <PID_v1.h>
-//#include <PID_AutoTune_v0.h>
+#include <PID_AutoTune_v0.h>
 
 #include <OneWire.h>
 #include <DallasTemperature.h>
@@ -12,23 +12,23 @@
 OneWire oneWire(ONE_WIRE_BUS);
 
 byte ATuneModeRemember=2;
-double input=80, output=50, setpoint=32;
+double input=0, output=0, setpoint=30;
 double kp=2,ki=0.5,kd=2;
 
 const double kpmodel=1.5, taup=100;
 const double outputStart=5;
-const double aTuneStep=10, aTuneNoise=1, aTuneStartValue=20;
+const double aTuneStep=25, aTuneNoise=1, aTuneStartValue=50;
 const unsigned int aTuneLookBack=20;
 
-boolean tuning = true ;
+boolean tuning = false ;
 unsigned long  modelTime;
 
 PID myPID(&input, &output, &setpoint,kp,ki,kd, DIRECT);
-//PID_ATune aTune(&input, &output);
+PID_ATune aTune(&input, &output);
 
 void AutoTuneHelper(boolean start);
-void SerialSend();
-void SerialReceive();
+void SerialSend(Stream * port);
+void SerialReceive(Stream * port);
 void changeAutoTune();
 
 /////////////////////////////////////////////////////////
@@ -94,13 +94,6 @@ byte setupWiFi(byte step)
   server.begin();
   return 2;
 }
-ModbusASCII mb;
-
-void setupModbus(){
-  mb.setSlaveId(10);
-  mb.addIreg(SENSOR_IREG);
-  mb.addIreg(SENSOR_IREG+1);
-}
 
 void setup()
 {
@@ -119,9 +112,7 @@ void setup()
   Serial.begin(9600);
   WiFi.init(&Serial);    // initialize ESP module
 
-  setupModbus();
-
-     // Set ledPin mode
+   // Set ledPin mode
   pinMode(powerPin, OUTPUT);
   Serial.println("Setup compelete!");
 }
@@ -143,11 +134,8 @@ void loopOneWire()
     // just print out the current temperature
     input = getTemp(insideThermometer);
     word * reg = (word*)&input;
-    mb.Ireg(SENSOR_IREG, reg[0]);
-    mb.Ireg(SENSOR_IREG+1, reg[1]);
     sensors.requestTemperatures();
   }
-
 
 }
 
@@ -177,21 +165,21 @@ void loopWiFi();
 void loopPID(){
   if(tuning)
   {
-    byte val = 1;//(aTune.Runtime());
+    byte val = (aTune.Runtime());
     if (val!=0)
     {
       tuning = false;
     }
-    // if(!tuning)
-    // { //we're done, set the tuning parameters
-    //   kp = aTune.GetKp();
-    //   ki = aTune.GetKi();
-    //   kd = aTune.GetKd();
-    //   myPID.SetTunings(kp,ki,kd);
-    //   AutoTuneHelper(false);
-    // }
+    if(!tuning)
+    { //we're done, set the tuning parameters
+      kp = aTune.GetKp();
+      ki = aTune.GetKi();
+      kd = aTune.GetKd();
+      myPID.SetTunings(kp,ki,kd);
+      AutoTuneHelper(false);
+    }
   }
-  else myPID.Compute();
+//  else myPID.Compute();
 
   {
 //     analogWrite(0,output);
@@ -208,29 +196,30 @@ void loop()
   }else{
 
     loopOneWire();
-    // loopPID();
+    loopPID();
     loopWiFi();
   }
 }
 
 void changeAutoTune()
 {
-//  if(!tuning)
-//   {
-//     //Set the output to the desired starting frequency.
-//     output=aTuneStartValue;
-//     aTune.SetNoiseBand(aTuneNoise);
-//     aTune.SetOutputStep(aTuneStep);
-//     aTune.SetLookbackSec((int)aTuneLookBack);
-//     AutoTuneHelper(true);
-//     tuning = true;
-//   }
-//   else
-//   { //cancel autotune
-//     aTune.Cancel();
-//     tuning = false;
-//     AutoTuneHelper(false);
-//   }
+ if(!tuning)
+  {
+    //Set the output to the desired starting frequency.
+    output=aTuneStartValue;
+    aTune.SetNoiseBand(aTuneNoise);
+    aTune.SetOutputStep(aTuneStep);
+    aTune.SetLookbackSec((int)aTuneLookBack);
+    AutoTuneHelper(true);
+    tuning = true;
+  }
+  else
+  { //cancel autotune
+    aTune.Cancel();
+    tuning = false;
+    AutoTuneHelper(false);
+    output = 0.0;
+  }
 }
 
 void AutoTuneHelper(boolean start)
@@ -242,41 +231,40 @@ void AutoTuneHelper(boolean start)
 }
 
 
-void SerialSend()
+void SerialSend(Stream * port)
 {
-  Serial.print("setpoint: ");Serial.print(setpoint); Serial.print(" ");
-  Serial.print("input: ");Serial.print(input); Serial.print(" ");
-  Serial.print("output: ");Serial.print(output); Serial.print(" ");
+  (*port).println("------");
+//  (*port).println(setpoint);
+  (*port).println(input); 
+  (*port).println(output);
   if(tuning){
-    Serial.println("tuning mode");
+    (*port).println("tuning mode");
   } else {
-    Serial.print("kp: ");Serial.print(myPID.GetKp());Serial.print(" ");
-    Serial.print("ki: ");Serial.print(myPID.GetKi());Serial.print(" ");
-    Serial.print("kd: ");Serial.print(myPID.GetKd());Serial.println();
+    (*port).println(myPID.GetKp(), 4);
+    (*port).println(myPID.GetKi(), 4);
+    (*port).println(myPID.GetKd(), 4);
   }
 }
-
-void SerialReceive()
+void SerialReceive(Stream * port)
 {
-  if(Serial.available())
+  if((*port).available())
   {
-   char b = Serial.read();
-   Serial.flush();
+   char b = (*port).read();
+   (*port).flush();
    if((b=='1' && !tuning) || (b!='1' && tuning))changeAutoTune();
   }
 }
+
 WiFiEspClient * client = NULL;
 
 void loopWiFi()
 {
   if (client == NULL){
     client = server.available();  // listen for incoming clients
-    mb.config(client);
   }else{
     if (client->connected()) {              // loop while the client's connected
-      mb.task();
-      // while (client.available()) {               // if there's bytes to read from the client,
-      // }
+      SerialReceive(client);
+      SerialSend(client);
     }else{
     // close the connection
       client->stop();
