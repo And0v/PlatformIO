@@ -11,25 +11,16 @@
 #define ONE_WIRE_BUS 8
 OneWire oneWire(ONE_WIRE_BUS);
 
-byte ATuneModeRemember=2;
-double input=0, output=0, setpoint=30;
-double kp=2,ki=0.5,kd=2;
+double input=0, output=0, setpoint=5;
+double kp=10,ki=0.1,kd=0.01;
 
 const double kpmodel=1.5, taup=100;
 const double outputStart=5;
-const double aTuneStep=25, aTuneNoise=1, aTuneStartValue=50;
-const unsigned int aTuneLookBack=20;
 
-boolean tuning = false ;
 unsigned long  modelTime;
 
 PID myPID(&input, &output, &setpoint,kp,ki,kd, DIRECT);
-PID_ATune aTune(&input, &output);
 
-void AutoTuneHelper(boolean start);
-void SerialSend(Stream * port);
-void SerialReceive(Stream * port);
-void changeAutoTune();
 
 /////////////////////////////////////////////////////////
 
@@ -38,12 +29,22 @@ DeviceAddress insideThermometer;
 
 /////////////////////
 const int powerPin = 13;
-unsigned long powerPeriod = 10000;
+unsigned long powerPeriod = 20000;
 unsigned long powerTime = 0;
 /////////////////////////////////////////////////////
 
-const int SENSOR_IREG = 100; //101
+const int SENSOR_IREG = 100; //+1
+const int OUTPUT_HREG = 200; //+1
 
+ModbusASCII mb;
+
+void setupModbus(){
+  mb.setSlaveId(10);
+  mb.addIreg(SENSOR_IREG);
+  mb.addIreg(SENSOR_IREG+1);
+  mb.addHreg(OUTPUT_HREG);
+  mb.addHreg(OUTPUT_HREG+1);
+}
 
 void setupOneWire(){
 // Start up the library
@@ -99,19 +100,14 @@ void setup()
 {
   //Setup the pid
   myPID.SetMode(AUTOMATIC);
-
-  if(tuning)
-  {
-    tuning=false;
-    changeAutoTune();
-    tuning=true;
-  }
+  myPID.SetOutputLimits(0, 100);
 
   setupOneWire();
 
   Serial.begin(9600);
   WiFi.init(&Serial);    // initialize ESP module
 
+  setupModbus();
    // Set ledPin mode
   pinMode(powerPin, OUTPUT);
   Serial.println("Setup compelete!");
@@ -128,15 +124,15 @@ float getTemp(DeviceAddress deviceAddress)
 void loopOneWire()
 {
 
-
   if (sensors.isConversionComplete())
   {
     // just print out the current temperature
     input = getTemp(insideThermometer);
     word * reg = (word*)&input;
+    mb.Ireg(SENSOR_IREG, reg[0]);
+    mb.Ireg(SENSOR_IREG+1, reg[1]);
     sensors.requestTemperatures();
   }
-
 }
 
 
@@ -163,28 +159,12 @@ void setOutputPower(){
 void loopWiFi();
 
 void loopPID(){
-  if(tuning)
-  {
-    byte val = (aTune.Runtime());
-    if (val!=0)
-    {
-      tuning = false;
-    }
-    if(!tuning)
-    { //we're done, set the tuning parameters
-      kp = aTune.GetKp();
-      ki = aTune.GetKi();
-      kd = aTune.GetKd();
-      myPID.SetTunings(kp,ki,kd);
-      AutoTuneHelper(false);
-    }
-  }
-//  else myPID.Compute();
+  myPID.Compute();
+  setOutputPower();
+  word * reg = (word*)&output;
+  mb.Hreg(OUTPUT_HREG, reg[0]);
+  mb.Hreg(OUTPUT_HREG+1, reg[1]);
 
-  {
-//     analogWrite(0,output);
-      setOutputPower();
-  }
 }
 
 byte wifiInited = 0;
@@ -194,77 +174,23 @@ void loop()
   if (wifiInited < 2){
     wifiInited = setupWiFi(wifiInited);
   }else{
-
     loopOneWire();
     loopPID();
     loopWiFi();
   }
 }
 
-void changeAutoTune()
-{
- if(!tuning)
-  {
-    //Set the output to the desired starting frequency.
-    output=aTuneStartValue;
-    aTune.SetNoiseBand(aTuneNoise);
-    aTune.SetOutputStep(aTuneStep);
-    aTune.SetLookbackSec((int)aTuneLookBack);
-    AutoTuneHelper(true);
-    tuning = true;
-  }
-  else
-  { //cancel autotune
-    aTune.Cancel();
-    tuning = false;
-    AutoTuneHelper(false);
-    output = 0.0;
-  }
-}
-
-void AutoTuneHelper(boolean start)
-{
-  if(start)
-    ATuneModeRemember = myPID.GetMode();
-  else
-    myPID.SetMode(ATuneModeRemember);
-}
+ WiFiEspClient * client = NULL;
 
 
-void SerialSend(Stream * port)
-{
-  (*port).println("------");
-//  (*port).println(setpoint);
-  (*port).println(input); 
-  (*port).println(output);
-  if(tuning){
-    (*port).println("tuning mode");
-  } else {
-    (*port).println(myPID.GetKp(), 4);
-    (*port).println(myPID.GetKi(), 4);
-    (*port).println(myPID.GetKd(), 4);
-  }
-}
-void SerialReceive(Stream * port)
-{
-  if((*port).available())
-  {
-   char b = (*port).read();
-   (*port).flush();
-   if((b=='1' && !tuning) || (b!='1' && tuning))changeAutoTune();
-  }
-}
-
-WiFiEspClient * client = NULL;
-
-void loopWiFi()
+void  loopWiFi()
 {
   if (client == NULL){
     client = server.available();  // listen for incoming clients
   }else{
+    mb.config(client);
     if (client->connected()) {              // loop while the client's connected
-      SerialReceive(client);
-      SerialSend(client);
+      mb.task();
     }else{
     // close the connection
       client->stop();
