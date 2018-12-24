@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "main.h"
-#include "auto_tune.h"
+#include "auto_tune_pid.h"
 #include "microLAN.h"
 #include "devModbus.h"
 
@@ -14,9 +14,9 @@ void setup() {
 
   Serial.begin(38400);
 
-  // setupAT();
   setupOneWire();
   setupModbus();
+  setupPID();
 
   Serial.println("Setup compelete!");
   mSeconds = millis();
@@ -32,12 +32,10 @@ void loop() {
     mSeconds += 1000;
     Events |= EV_TIMER_SEC;
     if (++Seconds % 10 == 0){
-      Events |= EV_TIMER_10SEC;
-      Events |= EV_REQUEST_CONVERSION;
+      Events |= EV_PID+EV_REQUEST_CONVERSION;
     }
   }
-
-  // loopAT();
   loopOneWire();
   loopModbus();
+  loopPID();
 }

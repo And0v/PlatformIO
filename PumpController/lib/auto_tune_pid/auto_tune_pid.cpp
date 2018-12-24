@@ -2,7 +2,8 @@
 #include <Arduino.h>
 #include <PID_v1.h>
 #include <PID_AutoTune_v0.h>
-
+#include "main.h"
+#include "microLAN.h"
 
 byte ATuneModeRemember=2;
 double input=80, output=50, setpoint=70;
@@ -19,24 +20,25 @@ unsigned long  modelTime, serialTime;
 PID myPID(&input, &output, &setpoint,kp,ki,kd, DIRECT);
 PID_ATune aTune(&input, &output);
 
-//set to false to connect to the real world
-boolean useSimulation = true;
+word inputIndex;
+
 
 void AutoTuneHelper(boolean start);
 void changeAutoTune();
 
-void setupAT()
+/////////////////////
+const int powerPin = 13;
+unsigned long powerPeriod = 20000;
+unsigned long powerTime = 0;
+/////////////////////////////////////////////////////
+
+
+void setupPID()
 {
-  if(useSimulation)
-  {
-    for(byte i=0;i<50;i++)
-    {
-      theta[i]=outputStart;
-    }
-    modelTime = 0;
-  }
+  inputIndex = 0;
   //Setup the pid
   myPID.SetMode(AUTOMATIC);
+  myPID.SetOutputLimits(0, 100);
 
   if(tuning)
   {
@@ -44,24 +46,29 @@ void setupAT()
     changeAutoTune();
     tuning=true;
   }
+  pinMode(powerPin, OUTPUT);
 
   serialTime = 0;
-  Serial.begin(9600);
-
 }
 void SerialSend();
 void SerialReceive();
 void DoModel();
+void setOutputPower();
 
-void loopAT()
+void loopPID()
 {
-
-  unsigned long now = millis();
-
-  if(!useSimulation)
-  { //pull the input in from the real world
-    input = analogRead(0);
+  if(!(Events & EV_PID)){
+    return;
   }
+  Events &= ~EV_PID;
+
+//  unsigned long now = millis();
+
+  SensorDef sensor = sensorsList[inputIndex];
+  if ( sensor.status != SENSOR_STATUS_OK){
+    return;
+  }
+  input = sensor.value;
 
   if(tuning)
   {
@@ -81,19 +88,9 @@ void loopAT()
   }
   else myPID.Compute();
 
-  if(useSimulation)
-  {
-    theta[30]=output;
-    if(now>=modelTime)
-    {
-      modelTime +=100;
-      DoModel();
-    }
-  }
-  else
-  {
-     analogWrite(0,output);
-  }
+
+  setOutputPower();
+
 
   //send-receive with processing if it's time
   if(millis()>serialTime)
@@ -102,6 +99,7 @@ void loopAT()
     SerialSend();
     serialTime+=500;
   }
+
 }
 
 void changeAutoTune()
@@ -165,5 +163,26 @@ void DoModel()
   }
   //compute the input
   input = (kpmodel / taup) *(theta[0]-outputStart) + input*(1-1/taup) + ((float)random(-10,10))/100;
+
+}
+
+void setOutputPower(){
+
+  unsigned long now = millis();
+
+
+  if (powerTime == 0){
+    powerTime = now;
+  }
+  if ((now - powerTime)>powerPeriod){
+    powerTime += powerPeriod;
+  }
+  double time = (now-powerTime);
+
+  if (time < output/100.0*powerPeriod){
+    digitalWrite(powerPin, 1);
+  }else{
+    digitalWrite(powerPin, 0);
+  }
 
 }
