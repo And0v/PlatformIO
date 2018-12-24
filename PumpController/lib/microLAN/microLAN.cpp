@@ -1,5 +1,6 @@
 
 #include <Arduino.h>
+#include "main.h"
 #include <OneWire.h>
 #include "microLAN.h"
 
@@ -8,41 +9,22 @@ OneWire oneWire(ONE_WIRE_BUS);
 
 DallasTemperature sensors(&oneWire);
 
-#define SENSOR_INSIDE 0
-#define SENSOR_PIPE 1
-#define SENSOR_OUTSIDE 2
-
-DeviceAddress pipeThermometer;
-DeviceAddress outsideThermometer;
-
-#define SENSOR_STATUS_OK 1
-#define SENSOR_STATUS_ERROR 0
-
-typedef  struct{
-    DeviceAddress address;
-    float value;
-    byte status;
-} SensorDef;
-
-SensorDef sensorsList[3];
+SensorDef sensorsList[SENSORS_COUNT];
 
 void setupOneWire(){
 // Start up the library
   sensors.begin();
 
   // search for devices on the bus and assign based on an index
-  if (!sensors.getAddress(sensorsList[SENSOR_INSIDE].address, 0)) {
-    Serial.println("Unable to find address for Device inside");
+  for (byte i = 0; i < SENSORS_COUNT; ++i){
+    if (!sensors.getAddress(sensorsList[i].address, i)) {
+      Serial.print("Unable to find address for Device ");
+      Serial.println(i);
+    }
   }
-  if (!sensors.getAddress(sensorsList[SENSOR_PIPE].address, 1)) {
-    Serial.println("Unable to find address for Device pipe");
-  }
-  if (!sensors.getAddress(sensorsList[SENSOR_OUTSIDE].address, 2)) {
-    Serial.println("Unable to find address for Device outside");
-  }
-
   sensors.setCheckForConversion(false);
-  sensors.requestTemperatures();
+  Events |= EV_REQUEST_CONVERSION;
+  //sensors.requestTemperatures();
 }
 
 SensorDef & getTemp(byte sensorIdx)
@@ -75,15 +57,19 @@ SensorDef & getTemp(byte sensorIdx)
 
 void loopOneWire()
 {
-  if (sensors.isConversionComplete())
-  {
+  if (Events & EV_REQUEST_CONVERSION){
+    Events &= ~EV_REQUEST_CONVERSION;
+    sensors.requestTemperatures();
+    Events |= EV_START_CONVERSION;
+  }
+  if ((Events & EV_START_CONVERSION)&&(sensors.isConversionComplete())){
+    Events &= ~EV_START_CONVERSION;
     Serial.print(" Inside temp: ");
     Serial.println(getTemp(SENSOR_INSIDE).value);
     Serial.print("  Pipe temp: ");
     Serial.println(getTemp(SENSOR_PIPE).value);
     Serial.print("Outside temp: ");
     Serial.println(getTemp(SENSOR_OUTSIDE).value);
-
-    sensors.requestTemperatures();
+    Events |= EV_CONVERSION_COMPLETE;
   }
 }

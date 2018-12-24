@@ -3,9 +3,22 @@
 
 #include <DallasTemperature.h>
 
-extern DeviceAddress insideThermometer;
-extern DeviceAddress pipeThermometer;
-extern DeviceAddress outsideThermometer;
+#define SENSOR_INSIDE 0
+#define SENSOR_PIPE 1
+#define SENSOR_OUTSIDE 2
+
+#define SENSOR_STATUS_OK 1
+#define SENSOR_STATUS_ERROR 0
+
+
+#define SENSORS_COUNT 3
+typedef  struct{
+    DeviceAddress address;
+    float value;
+    byte status;
+} SensorDef;
+
+extern SensorDef sensorsList[SENSORS_COUNT];
 
 float getTemp(DeviceAddress & deviceAddress);
 
