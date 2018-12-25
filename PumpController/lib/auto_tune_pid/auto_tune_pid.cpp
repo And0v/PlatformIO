@@ -4,14 +4,16 @@
 #include <PID_AutoTune_v0.h>
 #include "main.h"
 #include "microLAN.h"
+#include "devModbus.h"
+
 
 byte ATuneModeRemember=2;
-double input=80, output=50, setpoint=70;
+double input=0, output=0, setpoint=50;
 double kp=2,ki=0.5,kd=2;
 
 double kpmodel=1.5, taup=100, theta[50];
 double outputStart=5;
-double aTuneStep=30, aTuneNoise=1, aTuneStartValue=100;
+double aTuneStep=30, aTuneNoise=1, aTuneStartValue=50;
 unsigned int aTuneLookBack=20;
 
 boolean tuning = false;
@@ -37,8 +39,9 @@ void setupPID()
 {
   inputIndex = 0;
   //Setup the pid
-  myPID.SetMode(AUTOMATIC);
+  myPID.SetMode(MANUAL);
   myPID.SetOutputLimits(0, 100);
+  myPID.SetSampleTime(10000);
 
   if(tuning)
   {
@@ -48,12 +51,128 @@ void setupPID()
   }
   pinMode(powerPin, OUTPUT);
 
+  mb_Hreg(PID_AT_HREG, (word)(tuning?1:0));
+  mb_Hreg(PID_MOD_HREG, (word)myPID.GetMode());
+  mb_Hreg(PID_OUTPUT_HREG, (float)output);
+  mb_Hreg(PID_KI_HREG, (float)myPID.GetKi());
+  mb_Hreg(PID_KP_HREG, (float)myPID.GetKp());
+  mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
   serialTime = 0;
 }
 void SerialSend();
 void SerialReceive();
-void DoModel();
 void setOutputPower();
+
+void readPIDParams(){
+
+  Serial.print("readPIDParams: update = ");
+  word update = mb.Hreg(PID_UPDATE_HREG);
+  Serial.println(update);
+  if (update != 0){
+    Serial.println("Updating PID");
+    if (update & PID_UPADTE_AT){
+      Serial.print("- AT: ");
+      word value = mb.Hreg(PID_AT_HREG);
+      Serial.print(value);
+      if ((value == 1)&&(!tuning)){
+        tuning = true;
+        Serial.println(" - OK");
+      }else if ((value != 1)&&(tuning)){
+        tuning = false;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (update & PID_UPADTE_MOD){
+      Serial.print("- MODE: ");
+      word value = mb.Hreg(PID_MOD_HREG);
+      Serial.print(value);
+      if (((value & ~1)==0)&&((word)myPID.GetMode() != value)){
+        myPID.SetMode(value);
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (update & PID_UPADTE_IDX){
+      Serial.print("- INDEX: ");
+      word value = mb.Hreg(PID_INDEX_HREG);
+      Serial.print(value);
+      if ((value >=0)&&(value< SENSORS_COUNT)){
+        inputIndex = value;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (update & PID_UPADTE_OUT){
+      Serial.print("- OUTPUT: ");
+      float fValue = mb_Hreg(PID_OUTPUT_HREG);
+      Serial.print(fValue);
+      if ((fValue != NAN)&&(fValue >=0)&&(fValue<=100)){
+        output = fValue;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (update & PID_UPADTE_SET){
+      Serial.print("- SETPOINT: ");
+      float fValue = mb_Hreg(PID_SETPOINT_HREG);
+      Serial.print(fValue);
+      if ((fValue != NAN)&&(fValue >=30)&&(fValue<=80)){
+        setpoint = fValue;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+
+    byte pidUpdate = 0;
+    if (update & PID_UPADTE_KP){
+      Serial.print("- KP: ");
+      float fValue = mb_Hreg(PID_KP_HREG);
+      Serial.print(fValue, 3);
+      if ((fValue != NAN)&&(fValue > 0.0)){
+        kp = fValue;
+        ++pidUpdate;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (update & PID_UPADTE_KI){
+      Serial.print("- KI: ");
+      float fValue = mb_Hreg(PID_KI_HREG);
+      Serial.print(fValue, 3);
+      if ((fValue != NAN)&&(fValue > 0.0)){
+        ki = fValue;
+        ++pidUpdate;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (update & PID_UPADTE_KD){
+      Serial.print("- KD: ");
+      float fValue = mb_Hreg(PID_KD_HREG);
+      Serial.print(fValue, 3);
+      if ((fValue != NAN)&&(fValue > 0.0)){
+        ki = fValue;
+        ++pidUpdate;
+        Serial.println(" - OK");
+      }else{
+        Serial.println(" - Error");
+      }
+    }
+    if (pidUpdate != 0){
+      myPID.SetTunings(kp,ki,kd);
+    }
+    mb_Hreg(PID_UPDATE_HREG, (word)0);
+  }
+}
+
 
 void loopPID()
 {
@@ -62,13 +181,21 @@ void loopPID()
   }
   Events &= ~EV_PID;
 
-//  unsigned long now = millis();
+  readPIDParams();
+
+  if ((inputIndex <0)&&(inputIndex>=SENSORS_COUNT)){
+    Serial.print("Incorrect inputIndex: ");
+    Serial.println(inputIndex);
+    return;
+  }
 
   SensorDef sensor = sensorsList[inputIndex];
   if ( sensor.status != SENSOR_STATUS_OK){
+    Serial.print("Input sensor error!");
     return;
   }
   input = sensor.value;
+  mb_Hreg(PID_INPUT_HREG, (float)input);
 
   if(tuning)
   {
@@ -83,14 +210,18 @@ void loopPID()
       ki = aTune.GetKi();
       kd = aTune.GetKd();
       myPID.SetTunings(kp,ki,kd);
+      mb_Hreg(PID_KI_HREG, (float)myPID.GetKi());
+      mb_Hreg(PID_KP_HREG, (float)myPID.GetKp());
+      mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
       AutoTuneHelper(false);
     }
   }
-  else myPID.Compute();
-
+  else {
+    myPID.Compute();
+    mb_Hreg(PID_OUTPUT_HREG, (float)output);
+  }
 
   setOutputPower();
-
 
   //send-receive with processing if it's time
   if(millis()>serialTime)
@@ -99,7 +230,6 @@ void loopPID()
     SerialSend();
     serialTime+=500;
   }
-
 }
 
 void changeAutoTune()
@@ -120,14 +250,17 @@ void changeAutoTune()
     tuning = false;
     AutoTuneHelper(false);
   }
+  mb_Hreg(PID_AT_HREG, (word)(tuning?1:0));
 }
 
 void AutoTuneHelper(boolean start)
 {
   if(start)
     ATuneModeRemember = myPID.GetMode();
-  else
+  else{
     myPID.SetMode(ATuneModeRemember);
+    mb_Hreg(PID_MOD_HREG, (word)myPID.GetMode());
+  }
 }
 
 void SerialSend()
@@ -154,18 +287,6 @@ void SerialReceive()
   }
 }
 
-void DoModel()
-{
-  //cycle the dead time
-  for(byte i=0;i<49;i++)
-  {
-    theta[i] = theta[i+1];
-  }
-  //compute the input
-  input = (kpmodel / taup) *(theta[0]-outputStart) + input*(1-1/taup) + ((float)random(-10,10))/100;
-
-}
-
 void setOutputPower(){
 
   unsigned long now = millis();
@@ -177,7 +298,7 @@ void setOutputPower(){
   if ((now - powerTime)>powerPeriod){
     powerTime += powerPeriod;
   }
-  double time = (now-powerTime);
+  float time = (float)(now-powerTime);
 
   if (time < output/100.0*powerPeriod){
     digitalWrite(powerPin, 1);

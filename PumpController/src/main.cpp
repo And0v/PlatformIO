@@ -18,6 +18,8 @@ void setup() {
   setupModbus();
   setupPID();
 
+  Serial.println(sizeof(float));
+  Serial.println(sizeof(double));
   Serial.println("Setup compelete!");
   mSeconds = millis();
   Seconds = 0;
