@@ -40,7 +40,7 @@ void setupPID()
   inputIndex = 0;
   //Setup the pid
   myPID.SetMode(MANUAL);
-  myPID.SetOutputLimits(0, 100);
+  myPID.SetOutputLimits(10, 100);
   myPID.SetSampleTime(30000);
 
   if(tuning)
