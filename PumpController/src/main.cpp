@@ -33,9 +33,10 @@ void loop() {
   if ((mSec - mSeconds) > 1000){
     mSeconds += 1000;
     Events |= EV_TIMER_SEC;
-    if (++Seconds % 10 == 0){
-      Events |= EV_PID+EV_REQUEST_CONVERSION;
+    if (++Seconds % 5 == 0){
+      Events |= EV_REQUEST_CONVERSION;
     }
+    Events |= EV_PID;
   }
   loopOneWire();
   loopModbus();

@@ -30,7 +30,7 @@ void changeAutoTune();
 
 /////////////////////
 const int powerPin = 13;
-unsigned long powerPeriod = 20000;
+unsigned long powerPeriod = 30000;
 unsigned long powerTime = 0;
 /////////////////////////////////////////////////////
 
@@ -41,7 +41,7 @@ void setupPID()
   //Setup the pid
   myPID.SetMode(MANUAL);
   myPID.SetOutputLimits(0, 100);
-  myPID.SetSampleTime(10000);
+  myPID.SetSampleTime(30000);
 
   if(tuning)
   {
@@ -57,6 +57,7 @@ void setupPID()
   mb_Hreg(PID_KI_HREG, (float)myPID.GetKi());
   mb_Hreg(PID_KP_HREG, (float)myPID.GetKp());
   mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
+  mb_Hreg(PID_SETPOINT_HREG, (float)setpoint);
   serialTime = 0;
 }
 void SerialSend();
@@ -75,10 +76,10 @@ void readPIDParams(){
       word value = mb.Hreg(PID_AT_HREG);
       Serial.print(value);
       if ((value == 1)&&(!tuning)){
-        tuning = true;
+        changeAutoTune();
         Serial.println(" - OK");
       }else if ((value != 1)&&(tuning)){
-        tuning = false;
+        changeAutoTune();
         Serial.println(" - OK");
       }else{
         Serial.println(" - Error");
@@ -215,12 +216,14 @@ void loopPID()
       mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
       AutoTuneHelper(false);
     }
+    mb_Hreg(PID_OUTPUT_HREG, (float)output);
   }
   else {
     myPID.Compute();
-    mb_Hreg(PID_OUTPUT_HREG, (float)output);
+    if (myPID.GetMode() == AUTOMATIC){
+      mb_Hreg(PID_OUTPUT_HREG, (float)output);
+    }
   }
-
   setOutputPower();
 
   //send-receive with processing if it's time
