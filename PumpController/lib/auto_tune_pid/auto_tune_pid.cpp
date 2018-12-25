@@ -8,8 +8,8 @@
 
 
 byte ATuneModeRemember=2;
-double input=0, output=0, setpoint=50;
-double kp=2,ki=0.5,kd=2;
+double input=0, output=0, setpoint=55;
+double kp=0.5,ki=0.1,kd=.05;
 
 double kpmodel=1.5, taup=100, theta[50];
 double outputStart=5;
@@ -40,7 +40,7 @@ void setupPID()
   inputIndex = 0;
   //Setup the pid
   myPID.SetMode(MANUAL);
-  myPID.SetOutputLimits(10, 100);
+  myPID.SetOutputLimits(30, 100);
   myPID.SetSampleTime(30000);
 
   if(tuning)
