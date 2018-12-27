@@ -39,7 +39,7 @@ void setupPID()
 {
   inputIndex = 0;
   //Setup the pid
-  myPID.SetMode(MANUAL);
+  myPID.SetMode(AUTOMATIC);
   myPID.SetOutputLimits(30, 100);
   myPID.SetSampleTime(30000);
 
@@ -187,12 +187,17 @@ void loopPID()
   if ((inputIndex <0)&&(inputIndex>=SENSORS_COUNT)){
     Serial.print("Incorrect inputIndex: ");
     Serial.println(inputIndex);
+    output = 50;
+    setOutputPower();
     return;
   }
 
   SensorDef sensor = sensorsList[inputIndex];
   if ( sensor.status != SENSOR_STATUS_OK){
-    Serial.print("Input sensor error!");
+    Serial.print("Input sensor error! Sensor Index: ");
+    Serial.println(inputIndex);
+    output = 50;
+    setOutputPower();
     return;
   }
   input = sensor.value;

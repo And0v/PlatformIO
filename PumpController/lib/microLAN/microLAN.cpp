@@ -37,13 +37,13 @@ SensorDef & getTemp(byte sensorIdx)
   }
   switch (sensor.status) {
     case SENSOR_STATUS_ERROR:
-      if (tempC != NAN){
+      if ((tempC != NAN)&&(tempC != -NAN)){
         sensor.value = tempC;
         sensor.status = SENSOR_STATUS_OK;
       }
     break;
     case SENSOR_STATUS_OK:
-      if (tempC != NAN){
+      if ((tempC != NAN)&&(tempC != -NAN)){
         sensor.value = (tempC+sensor.value*8)/9;
         sensor.status = SENSOR_STATUS_OK;
       }else{
