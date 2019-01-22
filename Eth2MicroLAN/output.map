@@ -1,0 +1,1911 @@
+Archive member included to satisfy reference by file (symbol)
+
+.pioenvs/nanoatmega328/lib08c/libmicroLAN.a(microLAN.cpp.o)
+                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin) (_Z12setupOneWirev)
+.pioenvs/nanoatmega328/libb7e/libudp2mudbus.a(udp2modbus.cpp.o)
+                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin) (_Z9setupU2MBv)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin) (_ZN14HardwareSerial5beginEmh)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(HardwareSerial0.cpp.o)
+                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin) (Serial)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(Print.cpp.o)
+                              HardwareSerial.cpp.o (symbol from plugin) (_ZN5Print5writeEPKhj)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(abi.cpp.o)
+                              HardwareSerial0.cpp.o (symbol from plugin) (__cxa_pure_virtual)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(main.cpp.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o (main)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(wiring.c.o)
+                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin) (millis)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(hooks.c.o)
+                              wiring.c.o (symbol from plugin) (yield)
+.pioenvs/nanoatmega328/lib57d/libOneWire_ID1.a(OneWire.cpp.o)
+                              microLAN.cpp.o (symbol from plugin) (_ZN7OneWire5beginEh)
+.pioenvs/nanoatmega328/lib420/libDallasTemperature_ID54.a(DallasTemperature.cpp.o)
+                              microLAN.cpp.o (symbol from plugin) (_ZN17DallasTemperatureC1EP7OneWire)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(EtherCard.cpp.o)
+                              udp2modbus.cpp.o (symbol from plugin) (_ZN9EtherCard5beginEjPKhh)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(dhcp.cpp.o)
+                              udp2modbus.cpp.o (symbol from plugin) (_ZN9EtherCard9dhcpSetupEPKcb)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(enc28j60.cpp.o)
+                              EtherCard.cpp.o (symbol from plugin) (_ZN8ENC28J6010initializeEjPKhh)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(stash.cpp.o)
+                              EtherCard.cpp.o (symbol from plugin) (_ZN5Stash7initMapEh)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(tcpip.cpp.o)
+                              dhcp.cpp.o (symbol from plugin) (allOnes)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(udpserver.cpp.o)
+                              udp2modbus.cpp.o (symbol from plugin) (_ZN9EtherCard21udpServerListenOnPortEPFvjPhjPKcjEj)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(webutil.cpp.o)
+                              EtherCard.cpp.o (symbol from plugin) (_ZN9EtherCard6copyIpEPhPKh)
+.pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a(bufferfiller.cpp.o)
+                              tcpip.cpp.o (symbol from plugin) (_ZN12BufferFiller6emit_pEPKcz)
+.pioenvs/nanoatmega328/lib552/libModbusAO.a(ModbusAO.cpp.o)
+                              udp2modbus.cpp.o (symbol from plugin) (_ZN8ModbusAO5beginEh)
+.pioenvs/nanoatmega328/lib632/libModbusUDP.a(ModbusUDP.cpp.o)
+                              udp2modbus.cpp.o (symbol from plugin) (_ZN9ModbusUDPC1Ev)
+.pioenvs/nanoatmega328/libFrameworkArduino.a(wiring_digital.c.o)
+                              OneWire.cpp.o (symbol from plugin) (pinMode)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o (exit)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+                              webutil.cpp.o (symbol from plugin) (atoi)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy_P.o)
+                              tcpip.cpp.o (symbol from plugin) (memcpy_P)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+                              stash.cpp.o (symbol from plugin) (__strlen_P)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strncpy_P.o)
+                              dhcp.cpp.o (symbol from plugin) (strncpy_P)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+                              webutil.cpp.o (symbol from plugin) (__itoa)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o) (__itoa_ncheck)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+                              bufferfiller.cpp.o (symbol from plugin) (__ltoa_ncheck)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(mul10.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o) (__mulhi_const_10)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o) (__ultoa_common)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o) (__utoa_common)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strrev.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o) (strrev)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+                              microLAN.cpp.o (symbol from plugin) (eeprom_read_byte)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+                              udp2modbus.cpp.o (symbol from plugin) (eeprom_write_byte)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+                              /tmp/cc2jcLOL.ltrans4.ltrans.o (__divmodhi4)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+                              /tmp/cc2jcLOL.ltrans0.ltrans.o (__udivmodsi4)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+                              /tmp/cc2jcLOL.ltrans1.ltrans.o (__tablejump2__)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+                              /tmp/cc2jcLOL.ltrans0.ltrans.o (__do_copy_data)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+                              /tmp/cc2jcLOL.ltrans0.ltrans.o (__do_clear_bss)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+                              /tmp/cc2jcLOL.ltrans3.ltrans.o (__do_global_ctors)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+                              /tmp/cc2jcLOL.ltrans2.ltrans.o (__muluhisi3)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o) (__udivmodhi4)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o) (__umulhisi3)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                              /tmp/cc2jcLOL.ltrans0.ltrans.o (malloc)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+                              /tmp/cc2jcLOL.ltrans4.ltrans.o (abort)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcmp.o)
+                              /tmp/cc2jcLOL.ltrans0.ltrans.o (memcmp)
+/home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy.o)
+                              /tmp/cc2jcLOL.ltrans0.ltrans.o (memcpy)
+
+Allocating common symbols
+Common symbol       size              file
+
+__brkval            0x2               /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__flp               0x2               /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .text          0x0000000000000000        0x0 .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN14HardwareSerial5beginEm
+                0x0000000000000000        0x0 .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 /tmp/cc2jcLOL.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/cc2jcLOL.ltrans1.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/cc2jcLOL.ltrans3.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/cc2jcLOL.ltrans4.ltrans.o
+ .bss           0x0000000000000000        0x0 /tmp/cc2jcLOL.ltrans4.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/cc2jcLOL.ltrans5.ltrans.o
+ .text          0x0000000000000000        0x0 microLAN.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN14HardwareSerial5writeEi
+                0x0000000000000000        0x0 microLAN.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZNK5EERefdeEv
+                0x0000000000000000        0x0 microLAN.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 udp2modbus.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZNK5EERefdeEv
+                0x0000000000000000        0x0 udp2modbus.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5EERefaSEh
+                0x0000000000000000        0x0 udp2modbus.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 HardwareSerial.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV14HardwareSerial
+                0x0000000000000000        0x0 HardwareSerial.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 HardwareSerial0.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x0000000000000000        0x0 HardwareSerial0.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x0000000000000000        0x0 HardwareSerial0.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN6StreamC5Ev
+                0x0000000000000000        0x0 HardwareSerial0.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV6Stream
+                0x0000000000000000        0x0 HardwareSerial0.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN14HardwareSerial16_rx_complete_irqEv
+                0x0000000000000000        0x0 HardwareSerial0.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x0000000000000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x0000000000000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5writeEPKc
+                0x0000000000000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5writeEPKcj
+                0x0000000000000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV5Print
+                0x0000000000000000        0x0 Print.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 abi.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 main.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 wiring.c.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 hooks.c.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 OneWire.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 DallasTemperature.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 EtherCard.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 dhcp.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 enc28j60.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5StashC5Ev
+                0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV5Stash
+                0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5StashC5Eh
+                0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Stash5writeEh
+                0x0000000000000000        0x0 stash.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 tcpip.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x0000000000000000        0x0 tcpip.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x0000000000000000        0x0 tcpip.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN12BufferFiller5writeEh
+                0x0000000000000000        0x0 tcpip.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV12BufferFiller
+                0x0000000000000000        0x0 tcpip.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 udpserver.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 webutil.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 bufferfiller.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 ModbusAO.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 ModbusUDP.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV9ModbusUDP
+                0x0000000000000000        0x0 ModbusUDP.cpp.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 wiring_digital.c.o (symbol from plugin)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+ .text.avr-libc
+                0x0000000000000000       0x3c /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy_P.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy_P.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy_P.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+ .text.avr-libc
+                0x0000000000000000       0x12 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strncpy_P.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strncpy_P.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strncpy_P.o)
+ .text.avr-libc
+                0x0000000000000000       0x1e /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strncpy_P.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+ .text.avr-libc
+                0x0000000000000000       0x16 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+ .text.avr-libc
+                0x0000000000000000       0x16 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+ .text.avr-libc
+                0x0000000000000000       0x1e /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(mul10.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(mul10.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(mul10.o)
+ .text.avr-libc
+                0x0000000000000000       0x10 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(mul10.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+ .text.avr-libc
+                0x0000000000000000       0x44 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+ .text.avr-libc
+                0x0000000000000000       0x34 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strrev.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strrev.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strrev.o)
+ .text.avr-libc
+                0x0000000000000000       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strrev.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcmp.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcmp.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcmp.o)
+ .text          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy.o)
+ .data          0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy.o)
+ .bss           0x0000000000000000        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x0000000000000000 0x0000000000020000 xr
+data             0x0000000000800060 0x000000000000ffa0 rw !x
+eeprom           0x0000000000810000 0x0000000000010000 rw !x
+fuse             0x0000000000820000 0x0000000000000003 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+LOAD .pioenvs/nanoatmega328/src/main.cpp.o
+LOAD /tmp/cc2jcLOL.ltrans0.ltrans.o
+LOAD /tmp/cc2jcLOL.ltrans1.ltrans.o
+LOAD /tmp/cc2jcLOL.ltrans2.ltrans.o
+LOAD /tmp/cc2jcLOL.ltrans3.ltrans.o
+LOAD /tmp/cc2jcLOL.ltrans4.ltrans.o
+LOAD /tmp/cc2jcLOL.ltrans5.ltrans.o
+START GROUP
+LOAD .pioenvs/nanoatmega328/libc05/libEEPROM.a
+LOAD .pioenvs/nanoatmega328/lib57d/libOneWire_ID1.a
+LOAD .pioenvs/nanoatmega328/lib420/libDallasTemperature_ID54.a
+LOAD .pioenvs/nanoatmega328/lib08c/libmicroLAN.a
+LOAD .pioenvs/nanoatmega328/libdef/libEtherCard_ID425.a
+LOAD .pioenvs/nanoatmega328/lib552/libModbusAO.a
+LOAD .pioenvs/nanoatmega328/lib632/libModbusUDP.a
+LOAD .pioenvs/nanoatmega328/libb7e/libudp2mudbus.a
+LOAD .pioenvs/nanoatmega328/libFrameworkArduinoVariant.a
+LOAD .pioenvs/nanoatmega328/libFrameworkArduino.a
+END GROUP
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libm.a
+START GROUP
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libm.a
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a
+LOAD /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a
+END GROUP
+                0x0000000000020000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x20000
+                0x000000000000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                0x0000000000010000                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x0000000000000003]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x0000000000000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x0000000000000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x0000000000000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000     0x3a94
+ *(.vectors)
+ .vectors       0x0000000000000000       0x68 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table
+                0x0000000000000068       0x20 /tmp/cc2jcLOL.ltrans1.ltrans.o
+                0x0000000000000088                . = ALIGN (0x2)
+                0x0000000000000088                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000000000000088        0x0 linker stubs
+ *(.trampolines*)
+                0x0000000000000088                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+ .progmem.data  0x0000000000000088       0x45 /tmp/cc2jcLOL.ltrans0.ltrans.o
+ .progmem.data  0x00000000000000cd       0xd1 /tmp/cc2jcLOL.ltrans1.ltrans.o
+                0x00000000000000cd                _ZL5iphdr.lto_priv.112
+ .progmem.data  0x000000000000019e       0x24 /tmp/cc2jcLOL.ltrans2.ltrans.o
+ .progmem.data  0x00000000000001c2      0x25a /tmp/cc2jcLOL.ltrans3.ltrans.o
+                0x000000000000041c                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000000000041c                __ctors_start = .
+ *(.ctors)
+ .ctors         0x000000000000041c        0x2 /tmp/cc2jcLOL.ltrans3.ltrans.o
+                0x000000000000041e                __ctors_end = .
+                0x000000000000041e                __dtors_start = .
+ *(.dtors)
+                0x000000000000041e                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000000000041e        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+                0x000000000000041e                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000000000041e        0xc /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000000000042a       0x16 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+                0x000000000000042a                __do_copy_data
+ .init4         0x0000000000000440       0x10 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000000440                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ .init6         0x0000000000000450       0x16 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+                0x0000000000000450                __do_global_ctors
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000000000000466        0x8 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ *(.init9)
+ *(.text)
+ .text          0x000000000000046e        0x4 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+                0x000000000000046e                __vector_22
+                0x000000000000046e                __vector_1
+                0x000000000000046e                __vector_24
+                0x000000000000046e                __vector_12
+                0x000000000000046e                __bad_interrupt
+                0x000000000000046e                __vector_6
+                0x000000000000046e                __vector_3
+                0x000000000000046e                __vector_23
+                0x000000000000046e                __vector_25
+                0x000000000000046e                __vector_11
+                0x000000000000046e                __vector_13
+                0x000000000000046e                __vector_17
+                0x000000000000046e                __vector_7
+                0x000000000000046e                __vector_5
+                0x000000000000046e                __vector_4
+                0x000000000000046e                __vector_9
+                0x000000000000046e                __vector_2
+                0x000000000000046e                __vector_21
+                0x000000000000046e                __vector_15
+                0x000000000000046e                __vector_8
+                0x000000000000046e                __vector_14
+                0x000000000000046e                __vector_10
+                0x000000000000046e                __vector_20
+ .text          0x0000000000000472      0xcae /tmp/cc2jcLOL.ltrans1.ltrans.o
+                0x00000000000004ae                _ZN8ModbusAO14searchRegisterEj
+                0x0000000000000580                _ZN9ModbusUDP7receiveEPh
+                0x0000000000000c5e                _ZN9EtherCard7printIpEPKcPKh
+                0x0000000000000ca6                _ZN9EtherCard7copyMacEPhPKh
+                0x0000000000000cb6                _ZN9EtherCard6copyIpEPhPKh
+                0x0000000000000cc6                _ZL16client_store_macPhS_.lto_priv.119
+                0x0000000000000cf4                _ZN9EtherCard19getTcpPayloadLengthEv
+                0x0000000000000d2a                _ZL12make_tcpheadjh.lto_priv.121
+                0x0000000000000d7e                _ZL7setMACsPKh.lto_priv.123
+                0x0000000000000d94                _ZL17client_arp_whohasPh.lto_priv.120
+                0x0000000000000dfc                _ZL12setMACandIPsPKhS0_.lto_priv.124
+                0x0000000000000e20                _ZN9EtherCard10udpPrepareEjPKhj
+                0x0000000000000ed6                _ZL13fill_checksumhhjh.lto_priv.117
+                0x0000000000000f7e                _ZL20fill_ip_hdr_checksumv.lto_priv.122
+                0x0000000000000f9c                _ZN9EtherCard11udpTransmitEj
+                0x0000000000000fe0                _ZL11make_eth_ipv.lto_priv.116
+                0x0000000000001004                _ZL21make_tcp_ack_from_anyih.lto_priv.118
+                0x000000000000104c                _ZN8ENC28J6013packetReceiveEv
+ .text          0x0000000000001120      0xa04 /tmp/cc2jcLOL.ltrans2.ltrans.o
+                0x00000000000013c6                _ZL7xferSPIh.lto_priv.128
+                0x00000000000013d0                _ZL11disableChipv.lto_priv.125
+                0x00000000000013de                _ZL10enableChipv.lto_priv.129
+                0x00000000000013ea                _ZL7readBufjPh.lto_priv.107
+                0x0000000000001438                _ZL7writeOphhh.lto_priv.108
+                0x0000000000001462                _ZL7SetBankh.lto_priv.127
+                0x00000000000014ac                _ZL12writeRegBytehh.lto_priv.104
+                0x00000000000014c6                _ZL8writeReghj.lto_priv.106
+                0x00000000000014e0                _ZL11readRegByteh.lto_priv.105
+                0x0000000000001510                _ZN8ENC28J6010packetSendEj
+                0x00000000000015d4                _ZL8writePhyhj.lto_priv.126
+                0x00000000000015fa                _ZN7OneWire4crc8EPKhh
+                0x000000000000162a                _ZN7OneWire8read_bitEv
+                0x0000000000001672                _ZN7OneWire9write_bitEh
+                0x00000000000016d0                _ZN7OneWire5writeEhh
+                0x0000000000001738                _ZN7OneWire6selectEPKh
+                0x0000000000001776                _ZN7OneWire5resetEv
+                0x00000000000017e4                delay
+                0x0000000000001858                millis
+                0x0000000000001870                _ZN9EtherCard16DhcpStateMachineEj
+ .text          0x0000000000001b24      0x4ec /tmp/cc2jcLOL.ltrans3.ltrans.o
+                0x0000000000001b24                _ZN5Print5writeEPKc.constprop.98
+                0x0000000000001b48                _ZN5Print7printlnEv.constprop.97
+                0x0000000000001b50                _ZN5Print11printNumberEmh.constprop.95
+                0x0000000000001c14                _ZN5Print5printEPKc.constprop.90
+                0x0000000000001c18                _ZN17DallasTemperature11isConnectedEPKhPh.constprop.87
+                0x0000000000001cde                _ZN17DallasTemperature13getResolutionEPKh.part.2.constprop.84
+                0x0000000000001d3a                _ZN5Print7printlnEPK19__FlashStringHelper.constprop.70
+                0x0000000000001d76                _ZL6is_lanPKhS0_.constprop.65
+                0x0000000000001db2                _ZL11readPhyByteh.constprop.63
+                0x0000000000001dde                _ZN5Print5printEii.constprop.48
+                0x0000000000001df2                _ZN5Print7printlnEii.constprop.47
+                0x0000000000001e1e                _ZN8ModbusAO3RegEj.constprop.22
+                0x0000000000001e76                _ZN9ModbusUDP7calcCrcEhPhh.constprop.0
+                0x0000000000001ebc                _ZN9ModbusUDP7sendPDUEPh
+                0x0000000000001efe                digitalWrite
+                0x0000000000001f98                pinMode
+ .text          0x0000000000002010      0x506 /tmp/cc2jcLOL.ltrans4.ltrans.o
+                0x0000000000002010                _ZN5Print5writeEPKhj
+                0x0000000000002064                _ZN5Print5flushEv
+                0x0000000000002066                _ZN5Print17availableForWriteEv
+                0x000000000000206c                _ZN14HardwareSerial17availableForWriteEv
+                0x000000000000208a                _ZN14HardwareSerial4readEv
+                0x00000000000020b2                _ZN14HardwareSerial4peekEv
+                0x00000000000020ce                _ZN14HardwareSerial9availableEv
+                0x000000000000213e                _ZN14HardwareSerial5writeEh
+                0x00000000000021d8                _ZN14HardwareSerial5flushEv
+                0x000000000000221c                _Z14serialEventRunv
+                0x0000000000002230                __cxa_pure_virtual
+                0x0000000000002234                _Z7rwEEMEMhjPhj
+                0x00000000000022a4                _Z16udpReceivePacketjPhjPKcj
+                0x000000000000235e                __vector_19
+                0x00000000000023aa                __vector_18
+                0x000000000000240e                _Z7getTemph
+ .text          0x0000000000002516       0x94 /tmp/cc2jcLOL.ltrans5.ltrans.o
+                0x0000000000002516                __vector_16
+                0x00000000000025aa                . = ALIGN (0x2)
+ *(.text.*)
+ .text.startup  0x00000000000025aa     0x104e /tmp/cc2jcLOL.ltrans0.ltrans.o
+                0x00000000000025aa                main
+ .text.startup  0x00000000000035f8      0x10e /tmp/cc2jcLOL.ltrans3.ltrans.o
+ .text.avr-libc
+                0x0000000000003706       0x12 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy_P.o)
+                0x0000000000003706                memcpy_P
+ .text.avr-libc
+                0x0000000000003718       0x10 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+                0x0000000000003718                eeprom_read_byte
+ .text.avr-libc
+                0x0000000000003728       0x1c /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+                0x0000000000003728                eeprom_write_byte
+                0x000000000000372a                eeprom_write_r18
+ .text.libgcc.div
+                0x0000000000003744       0x28 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+                0x0000000000003744                __divmodhi4
+                0x0000000000003744                _div
+ .text.libgcc.div
+                0x000000000000376c       0x44 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+                0x000000000000376c                __udivmodsi4
+ .text.libgcc   0x00000000000037b0        0xc /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+                0x00000000000037b0                __tablejump2__
+ .text.libgcc.mul
+                0x00000000000037bc       0x16 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+                0x00000000000037bc                __muluhisi3
+ .text.libgcc.div
+                0x00000000000037d2       0x28 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+                0x00000000000037d2                __udivmodhi4
+ .text.libgcc.mul
+                0x00000000000037fa       0x1e /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+                0x00000000000037fa                __umulhisi3
+ .text.avr-libc
+                0x0000000000003818      0x242 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                0x0000000000003818                malloc
+                0x0000000000003948                free
+ .text.avr-libc
+                0x0000000000003a5a        0xa /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+                0x0000000000003a5a                abort
+ .text.avr-libc
+                0x0000000000003a64       0x1a /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcmp.o)
+                0x0000000000003a64                memcmp
+ .text.avr-libc
+                0x0000000000003a7e       0x12 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy.o)
+                0x0000000000003a7e                memcpy
+                0x0000000000003a90                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000003a90        0x0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+                0x0000000000003a90                exit
+                0x0000000000003a90                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000003a90        0x4 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000000000003a94                _etext = .
+
+.data           0x0000000000800100      0x13e load address 0x0000000000003a94
+                0x0000000000800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x0000000000800100        0xb /tmp/cc2jcLOL.ltrans0.ltrans.o
+ .data          0x000000000080010b       0x20 /tmp/cc2jcLOL.ltrans2.ltrans.o
+                0x000000000080010b                _ZL8hostname.lto_priv.113
+ .data          0x000000000080012b        0x6 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                0x000000000080012b                __malloc_heap_end
+                0x000000000080012d                __malloc_heap_start
+                0x000000000080012f                __malloc_margin
+ *(.data*)
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ .rodata        0x0000000000800131        0xc /tmp/cc2jcLOL.ltrans0.ltrans.o
+ .rodata        0x000000000080013d        0x6 /tmp/cc2jcLOL.ltrans1.ltrans.o
+                0x000000000080013d                allOnes
+ .rodata        0x0000000000800143       0x1a /tmp/cc2jcLOL.ltrans3.ltrans.o
+ *(.rodata*)
+ .rodata.str1.1
+                0x000000000080015d       0xdd /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                         0xdf (size before relaxing)
+ .rodata.str1.1
+                0x000000000080023a        0x3 /tmp/cc2jcLOL.ltrans3.ltrans.o
+ *(.gnu.linkonce.r*)
+                0x000000000080023e                . = ALIGN (0x2)
+ *fill*         0x000000000080023d        0x1 
+                0x000000000080023e                _edata = .
+                0x000000000080023e                PROVIDE (__data_end, .)
+
+.bss            0x000000000080023e      0x35e
+                0x000000000080023e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x000000000080023e       0x4a /tmp/cc2jcLOL.ltrans0.ltrans.o
+                0x000000000080023e                Events
+ .bss           0x0000000000800288      0x1ed /tmp/cc2jcLOL.ltrans1.ltrans.o
+                0x0000000000800288                sensorsList
+                0x0000000000800298                _ZN8ENC28J6010bufferSizeE
+                0x000000000080029a                _ZN9EtherCard11broadcastipE
+                0x000000000080029e                _ZL9gwmacaddr.lto_priv.110
+                0x00000000008002a4                _ZL11destmacaddr.lto_priv.111
+                0x00000000008002aa                _ZN9EtherCard5mymacE
+                0x00000000008002b0                _ZN8ENC28J606bufferE
+ .bss           0x0000000000800475       0x2d /tmp/cc2jcLOL.ltrans2.ltrans.o
+                0x0000000000800475                timer0_millis
+                0x0000000000800479                timer0_overflow_count
+                0x000000000080047d                _ZN9EtherCard5dnsipE
+                0x0000000000800481                _ZL9waitgwmac.lto_priv.109
+                0x0000000000800482                _ZN9EtherCard8delaycntE
+                0x0000000000800484                _ZN9EtherCard4gwipE
+                0x0000000000800488                _ZL9dhcpState.lto_priv.114
+                0x0000000000800489                _ZL9selectPin.lto_priv.115
+ .bss           0x00000000008004a2       0xf5 /tmp/cc2jcLOL.ltrans3.ltrans.o
+                0x00000000008004a2                _ZN9EtherCard7netmaskE
+                0x00000000008004a6                _ZN9EtherCard4myipE
+                0x00000000008004aa                Serial
+                0x0000000000800547                mb
+                0x0000000000800575                sensors
+ .bss           0x0000000000800597        0x1 /tmp/cc2jcLOL.ltrans5.ltrans.o
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0000000000800598        0x4 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                0x0000000000800598                __brkval
+                0x000000000080059a                __flp
+                0x000000000080059c                PROVIDE (__bss_end, .)
+                0x0000000000003a94                __data_load_start = LOADADDR (.data)
+                0x0000000000003bd2                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x000000000080059c        0x0
+                [!provide]                        PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                        PROVIDE (__noinit_end, .)
+                0x000000000080059c                _end = .
+                0x000000000080059c                PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0xf
+ *(.eeprom*)
+ .eeprom        0x0000000000810000        0xf /tmp/cc2jcLOL.ltrans0.ltrans.o
+                0x000000000081000f                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /tmp/cc2jcLOL.ltrans1.ltrans.o
+ .comment       0x0000000000000011       0x12 /tmp/cc2jcLOL.ltrans2.ltrans.o
+ .comment       0x0000000000000011       0x12 /tmp/cc2jcLOL.ltrans3.ltrans.o
+ .comment       0x0000000000000011       0x12 /tmp/cc2jcLOL.ltrans4.ltrans.o
+ .comment       0x0000000000000011       0x12 /tmp/cc2jcLOL.ltrans5.ltrans.o
+ .comment       0x0000000000000011       0x12 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x40 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x140
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .debug_aranges
+                0x0000000000000020       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .debug_aranges
+                0x0000000000000040       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .debug_aranges
+                0x0000000000000060       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .debug_aranges
+                0x0000000000000080       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .debug_aranges
+                0x00000000000000a0       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .debug_aranges
+                0x00000000000000c0       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .debug_aranges
+                0x00000000000000e0       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .debug_aranges
+                0x0000000000000100       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .debug_aranges
+                0x0000000000000120       0x20 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000      0xca2
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x5f4 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .debug_info    0x00000000000005f4       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .debug_info    0x000000000000069f       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .debug_info    0x000000000000074a       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .debug_info    0x00000000000007f5       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .debug_info    0x00000000000008a0       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .debug_info    0x000000000000094b       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .debug_info    0x00000000000009f6       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .debug_info    0x0000000000000aa1       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .debug_info    0x0000000000000b4c       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .debug_info    0x0000000000000bf7       0xab /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+
+.debug_abbrev   0x0000000000000000      0x66a
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x5a2 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .debug_abbrev  0x00000000000005a2       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .debug_abbrev  0x00000000000005b6       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .debug_abbrev  0x00000000000005ca       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .debug_abbrev  0x00000000000005de       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .debug_abbrev  0x00000000000005f2       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .debug_abbrev  0x0000000000000606       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x000000000000061a       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .debug_abbrev  0x000000000000062e       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .debug_abbrev  0x0000000000000642       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .debug_abbrev  0x0000000000000656       0x14 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+
+.debug_line     0x0000000000000000      0x6a0
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0x1a /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .debug_line    0x000000000000001a       0x62 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+ .debug_line    0x000000000000007c       0xc8 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+ .debug_line    0x0000000000000144      0x122 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+ .debug_line    0x0000000000000266       0x7a /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+ .debug_line    0x00000000000002e0       0x98 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+ .debug_line    0x0000000000000378       0x86 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+ .debug_line    0x00000000000003fe       0x92 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+ .debug_line    0x0000000000000490       0x92 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+ .debug_line    0x0000000000000522       0xce /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+ .debug_line    0x00000000000005f0       0xb0 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x0000000000000000      0x208
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x208 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(.pioenvs/nanoatmega328/firmware.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+Events                                            /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+Seconds                                           .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+Serial                                            /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_Z11loopOneWirev                                  microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_Z11readAddresshPA8_h                             microLAN.cpp.o (symbol from plugin)
+_Z11serialEventv                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+_Z12printAddressPh                                microLAN.cpp.o (symbol from plugin)
+_Z12setupOneWirev                                 microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_Z14serialEventRunv                               /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  main.cpp.o (symbol from plugin)
+_Z16sendAnswerPacketv                             udp2modbus.cpp.o (symbol from plugin)
+_Z16udpReceivePacketjPhjPKcj                      /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_Z17Serial0_availablev                            HardwareSerial0.cpp.o (symbol from plugin)
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+_Z5h2intc                                         webutil.cpp.o (symbol from plugin)
+_Z5int2hcPc                                       webutil.cpp.o (symbol from plugin)
+_Z7getTemph                                       /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_Z7rwEEMEMhjPhj                                   /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+_Z8loopU2MBv                                      udp2modbus.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_Z8setupUSBv                                      main.cpp.o (symbol from plugin)
+_Z9printBuffPhj                                   .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_Z9setupU2MBv                                     udp2modbus.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZL10enableChipv.lto_priv.129                     /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL11destmacaddr.lto_priv.111                     /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL11disableChipv.lto_priv.125                    /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL11make_eth_ipv.lto_priv.116                    /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL11readPhyByteh.constprop.63                    /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL11readRegByteh.lto_priv.105                    /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL12make_tcpheadjh.lto_priv.121                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL12setMACandIPsPKhS0_.lto_priv.124              /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL12writeRegBytehh.lto_priv.104                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL13fill_checksumhhjh.lto_priv.117               /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL16client_store_macPhS_.lto_priv.119            /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL17client_arp_whohasPh.lto_priv.120             /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL20fill_ip_hdr_checksumv.lto_priv.122           /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL21make_tcp_ack_from_anyih.lto_priv.118         /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL5iphdr.lto_priv.112                            /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL6is_lanPKhS0_.constprop.65                     /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL7SetBankh.lto_priv.127                         /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL7readBufjPh.lto_priv.107                       /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+_ZL7setMACsPKh.lto_priv.123                       /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL7writeOphhh.lto_priv.108                       /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL7xferSPIh.lto_priv.128                         /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL8hostname.lto_priv.113                         /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL8writePhyhj.lto_priv.126                       /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL8writeReghj.lto_priv.106                       /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL9dhcpState.lto_priv.114                        /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL9gwmacaddr.lto_priv.110                        /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL9selectPin.lto_priv.115                        /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZL9waitgwmac.lto_priv.109                        /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN12BufferFiller5writeEh                         tcpip.cpp.o (symbol from plugin)
+_ZN12BufferFiller6emit_pEPKcz                     bufferfiller.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN14HardwareSerial16_rx_complete_irqEv           HardwareSerial0.cpp.o (symbol from plugin)
+_ZN14HardwareSerial17_tx_udr_empty_irqEv          HardwareSerial.cpp.o (symbol from plugin)
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+_ZN14HardwareSerial17availableForWriteEv          /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+_ZN14HardwareSerial3endEv                         HardwareSerial.cpp.o (symbol from plugin)
+_ZN14HardwareSerial4peekEv                        /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+_ZN14HardwareSerial4readEv                        /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+_ZN14HardwareSerial5beginEm                       .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN14HardwareSerial5beginEmh                      HardwareSerial.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN14HardwareSerial5flushEv                       /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+_ZN14HardwareSerial5writeEh                       /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN14HardwareSerial5writeEi                       microLAN.cpp.o (symbol from plugin)
+_ZN14HardwareSerial9availableEv                   /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+_ZN17DallasTemperature10getAddressEPhh            DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature10setOneWireEP7OneWire      DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature11alarmSearchEPh            DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature11getUserDataEPKh           DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature11isConnectedEPKh           DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperature11isConnectedEPKhPh         DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature11isConnectedEPKhPh.constprop.87 /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN17DallasTemperature11setUserDataEPKhi          DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature11validFamilyEPKh           DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature12getDS18CountEv            DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature12rawToCelsiusEi            DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature12toFahrenheitEf            DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature12validAddressEPKh          DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature13getResolutionEPKh         DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature13getResolutionEPKh.part.2.constprop.84 /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN17DallasTemperature13getResolutionEv           DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature13processAlarmsEv           DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature13setResolutionEPKhhb       DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature13setResolutionEh           DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature14getDeviceCountEv          DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature14readScratchPadEPKhPh      DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15getLowAlarmTempEPKh       DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15getTempCByIndexEh         DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15getTempFByIndexEh         DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15hasAlarmHandlerEv         DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15rawToFahrenheitEi         DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15readPowerSupplyEPKh       DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15setAlarmHandlerEPFvPKhE   DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15setLowAlarmTempEPKha      DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature15writeScratchPadEPKhS1_    DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature16getHighAlarmTempEPKh      DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature16resetAlarmSearchEv        DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature16setHighAlarmTempEPKha     DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature18getUserDataByIndexEh      DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature18setUserDataByIndexEhi     DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature19isParasitePowerModeEv     DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature19requestTemperaturesEv     DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperature20calculateTemperatureEPKhPh DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature20getWaitForConversionEv    DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature20isConversionCompleteEv    DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperature20setWaitForConversionEb    DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature21getCheckForConversionEv   DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature21setCheckForConversionEb   DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperature25millisToWaitForConversionEh DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature26requestTemperaturesByIndexEh DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature27blockTillConversionCompleteEh DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature28requestTemperaturesByAddressEPKh DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature5beginEv                    DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperature7getTempEPKh                DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperature8getTempCEPKh               DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature8getTempFEPKh               DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature8hasAlarmEPKh               DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature8hasAlarmEv                 DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperature9toCelsiusEf                DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperatureC1EP7OneWire                DallasTemperature.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN17DallasTemperatureC1Ev                        DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperatureC2EP7OneWire                DallasTemperature.cpp.o (symbol from plugin)
+_ZN17DallasTemperatureC2Ev                        DallasTemperature.cpp.o (symbol from plugin)
+_ZN5EERefaSEh                                     udp2modbus.cpp.o (symbol from plugin)
+_ZN5Print10printFloatEdh                          Print.cpp.o (symbol from plugin)
+_ZN5Print11printNumberEmh                         Print.cpp.o (symbol from plugin)
+_ZN5Print11printNumberEmh.constprop.95            /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Print17availableForWriteEv                    /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+                                                  Print.cpp.o (symbol from plugin)
+_ZN5Print5flushEv                                 /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+                                                  Print.cpp.o (symbol from plugin)
+_ZN5Print5printEPK19__FlashStringHelper           Print.cpp.o (symbol from plugin)
+                                                  webutil.cpp.o (symbol from plugin)
+_ZN5Print5printEPKc                               Print.cpp.o (symbol from plugin)
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN5Print5printEPKc.constprop.90                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Print5printERK6String                         Print.cpp.o (symbol from plugin)
+_ZN5Print5printERK9Printable                      Print.cpp.o (symbol from plugin)
+_ZN5Print5printEc                                 Print.cpp.o (symbol from plugin)
+                                                  webutil.cpp.o (symbol from plugin)
+_ZN5Print5printEdi                                Print.cpp.o (symbol from plugin)
+_ZN5Print5printEhi                                Print.cpp.o (symbol from plugin)
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN5Print5printEii                                Print.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN5Print5printEii.constprop.48                   /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Print5printEji                                Print.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN5Print5printEli                                Print.cpp.o (symbol from plugin)
+_ZN5Print5printEmi                                Print.cpp.o (symbol from plugin)
+_ZN5Print5writeEPKc                               Print.cpp.o (symbol from plugin)
+_ZN5Print5writeEPKc.constprop.98                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Print5writeEPKcj                              Print.cpp.o (symbol from plugin)
+_ZN5Print5writeEPKhj                              /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  Print.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+                                                  HardwareSerial.cpp.o (symbol from plugin)
+_ZN5Print7printlnEPK19__FlashStringHelper         Print.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN5Print7printlnEPK19__FlashStringHelper.constprop.70 /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Print7printlnEPKc                             Print.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN5Print7printlnERK6String                       Print.cpp.o (symbol from plugin)
+_ZN5Print7printlnERK9Printable                    Print.cpp.o (symbol from plugin)
+_ZN5Print7printlnEc                               Print.cpp.o (symbol from plugin)
+_ZN5Print7printlnEdi                              Print.cpp.o (symbol from plugin)
+_ZN5Print7printlnEhi                              Print.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN5Print7printlnEii                              Print.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN5Print7printlnEii.constprop.47                 /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Print7printlnEji                              Print.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN5Print7printlnEli                              Print.cpp.o (symbol from plugin)
+_ZN5Print7printlnEmi                              Print.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN5Print7printlnEv                               Print.cpp.o (symbol from plugin)
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+_ZN5Print7printlnEv.constprop.97                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN5Stash10allocBlockEv                           stash.cpp.o (symbol from plugin)
+_ZN5Stash3getEv                                   stash.cpp.o (symbol from plugin)
+_ZN5Stash3mapE                                    stash.cpp.o (symbol from plugin)
+_ZN5Stash3putEc                                   stash.cpp.o (symbol from plugin)
+_ZN5Stash4bufsE                                   stash.cpp.o (symbol from plugin)
+_ZN5Stash4loadEhh                                 stash.cpp.o (symbol from plugin)
+_ZN5Stash4openEh                                  stash.cpp.o (symbol from plugin)
+_ZN5Stash4saveEv                                  stash.cpp.o (symbol from plugin)
+_ZN5Stash4sizeEv                                  stash.cpp.o (symbol from plugin)
+_ZN5Stash5writeEh                                 stash.cpp.o (symbol from plugin)
+_ZN5Stash6createEv                                stash.cpp.o (symbol from plugin)
+_ZN5Stash6lengthEv                                stash.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN5Stash7cleanupEv                               stash.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN5Stash7extractEjjPv                            stash.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN5Stash7initMapEh                               stash.cpp.o (symbol from plugin)
+                                                  EtherCard.cpp.o (symbol from plugin)
+_ZN5Stash7prepareEPKcz                            stash.cpp.o (symbol from plugin)
+_ZN5Stash7releaseEv                               stash.cpp.o (symbol from plugin)
+_ZN5Stash9fetchByteEhh                            stash.cpp.o (symbol from plugin)
+_ZN5Stash9freeBlockEh                             stash.cpp.o (symbol from plugin)
+_ZN5Stash9freeCountEv                             stash.cpp.o (symbol from plugin)
+_ZN5StashC1Eh                                     stash.cpp.o (symbol from plugin)
+_ZN5StashC1Ev                                     stash.cpp.o (symbol from plugin)
+_ZN5StashC2Eh                                     stash.cpp.o (symbol from plugin)
+_ZN5StashC2Ev                                     stash.cpp.o (symbol from plugin)
+_ZN6StreamC1Ev                                    HardwareSerial0.cpp.o (symbol from plugin)
+_ZN6StreamC2Ev                                    HardwareSerial0.cpp.o (symbol from plugin)
+_ZN7OneWire10read_bytesEPhj                       OneWire.cpp.o (symbol from plugin)
+_ZN7OneWire11check_crc16EPKhjS1_j                 OneWire.cpp.o (symbol from plugin)
+_ZN7OneWire11write_bytesEPKhjb                    OneWire.cpp.o (symbol from plugin)
+_ZN7OneWire12reset_searchEv                       OneWire.cpp.o (symbol from plugin)
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire13target_searchEh                      OneWire.cpp.o (symbol from plugin)
+_ZN7OneWire4crc8EPKhh                             /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  OneWire.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire4readEv                                OneWire.cpp.o (symbol from plugin)
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire4skipEv                                OneWire.cpp.o (symbol from plugin)
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire5beginEh                               OneWire.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+_ZN7OneWire5crc16EPKhjj                           OneWire.cpp.o (symbol from plugin)
+_ZN7OneWire5resetEv                               /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  OneWire.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire5writeEhh                              /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  OneWire.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire6searchEPhb                            OneWire.cpp.o (symbol from plugin)
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire6selectEPKh                            /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  OneWire.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire7depowerEv                             OneWire.cpp.o (symbol from plugin)
+_ZN7OneWire8read_bitEv                            /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  OneWire.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN7OneWire9write_bitEh                           /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  OneWire.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+_ZN8ENC28J6010bufferSizeE                         /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN8ENC28J6010enc_mallocEj                        enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6010initializeEjPKhh                    enc28j60.cpp.o (symbol from plugin)
+                                                  EtherCard.cpp.o (symbol from plugin)
+_ZN8ENC28J6010packetSendEj                        /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN8ENC28J6011enc_freememEv                       enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6013memcpy_to_encEjPvi                  enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6013packetReceiveEv                     /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN8ENC28J6015enableBroadcastEb                   enc28j60.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN8ENC28J6015enableMulticastEv                   enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6015memcpy_from_encEPvji                enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6015readPacketSliceEPcii                enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6016disableBroadcastEb                  enc28j60.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN8ENC28J6016disableMulticastEv                  enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6017broadcast_enabledE                  enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6017enablePromiscuousEb                 enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6018disablePromiscuousEb                enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J6019promiscuous_enabledE                enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J606bufferE                              /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  udpserver.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN8ENC28J606copyinEhPh                           enc28j60.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+_ZN8ENC28J606doBISTEh                             enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J606peekinEhh                            enc28j60.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+_ZN8ENC28J607copyoutEhPKh                         enc28j60.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+_ZN8ENC28J607initSPIEv                            enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J607powerUpEv                            enc28j60.cpp.o (symbol from plugin)
+_ZN8ENC28J608isLinkUpEv                           enc28j60.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN8ENC28J609powerDownEv                          enc28j60.cpp.o (symbol from plugin)
+_ZN8ModbusAO10receivePDUEPh                       ModbusAO.cpp.o (symbol from plugin)
+                                                  ModbusUDP.cpp.o (symbol from plugin)
+_ZN8ModbusAO13readRegistersEjj                    ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO14searchRegisterEj                    /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  ModbusAO.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+_ZN8ModbusAO15readInputStatusEjj                  ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO15writeSingleCoilEjj                  ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO17exceptionResponseEhh                ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO17readRegistersInfoEPhPK9TRegister    ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO18readInputRegistersEjj               ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO18writeMultipleCoilsEPhjjh            ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO19writeSingleRegisterEjj              ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO22writeMultipleRegistersEPhjjh        ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO3RegEj                                ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO3RegEj.constprop.22                   /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+_ZN8ModbusAO3RegEjj                               ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4CoilEj                               ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4CoilEjb                              ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4HregEj                               ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4HregEjj                              ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4IregEj                               ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4IregEjj                              ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4IstsEj                               ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO4IstsEjb                              ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO5beginEh                              ModbusAO.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN8ModbusAO9readCoilsEjj                         ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAO9registersE                           udp2modbus.cpp.o (symbol from plugin)
+                                                  ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAOC1Ev                                  ModbusAO.cpp.o (symbol from plugin)
+_ZN8ModbusAOC2Ev                                  ModbusAO.cpp.o (symbol from plugin)
+                                                  ModbusUDP.cpp.o (symbol from plugin)
+_ZN9EtherCard10findKeyValEPKcPchS1_               webutil.cpp.o (symbol from plugin)
+_ZN9EtherCard10makeNetStrEPcPhhch                 webutil.cpp.o (symbol from plugin)
+_ZN9EtherCard10ntpRequestEPhh                     tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard10packetLoopEj                       tcpip.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard10udpPrepareEjPKhj                   /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard10using_dhcpE                        EtherCard.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard11broadcastipE                       /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard11staticSetupEPKhS1_S1_S1_           EtherCard.cpp.o (symbol from plugin)
+_ZN9EtherCard11udpTransmitEj                      /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard12clientTcpReqEPFhhhjjEPFjhEj        tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard12makeUdpReplyEPKchj                 tcpip.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard15clientWaitingGwEv                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard15httpServerReplyEj                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard16DhcpStateMachineEj                 /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard16clientWaitingDnsEv                 tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard16ntpProcessAnswerEPmh               tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard17clientIcmpRequestEPKh              tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard17getSequenceNumberEv                tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard18httpServerReplyAckEv               tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard18udpServerListeningEv               udpserver.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard19getTcpPayloadLengthEv              /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+_ZN9EtherCard20persistTcpConnectionEb             tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard20registerPingCallbackEPFvPhE        tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard21dhcpAddOptionCallbackEhPFvhPKhhE   dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard21udpServerListenOnPortEPFvjPhjPKcjEj udpserver.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard22persist_tcp_connectionE            EtherCard.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard22updateBroadcastAddressEv           tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  EtherCard.cpp.o (symbol from plugin)
+_ZN9EtherCard24packetLoopIcmpCheckReplyEPKh       tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard26httpServerReply_with_flagsEjh      tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard26udpServerPauseListenOnPortEj       udpserver.cpp.o (symbol from plugin)
+_ZN9EtherCard27udpServerHasProcessedPacketEj      udpserver.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard27udpServerResumeListenOnPortEj      udpserver.cpp.o (symbol from plugin)
+_ZN9EtherCard4gwipE                               /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard4myipE                               /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard4wtoaEjPc                            EtherCard.cpp.o (symbol from plugin)
+                                                  bufferfiller.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+_ZN9EtherCard5beginEjPKhh                         EtherCard.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard5dnsipE                              /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard5hisipE                              EtherCard.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard5mymacE                              /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard6acceptEjj                           tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard6copyIpEPhPKh                        /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  EtherCard.cpp.o (symbol from plugin)
+_ZN9EtherCard6dhcpipE                             EtherCard.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard7copyMacEPhPKh                       /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  EtherCard.cpp.o (symbol from plugin)
+_ZN9EtherCard7hisportE                            EtherCard.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard7netmaskE                            /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard7parseIpEPhPc                        webutil.cpp.o (symbol from plugin)
+_ZN9EtherCard7printIpEPK19__FlashStringHelperPKh  webutil.cpp.o (symbol from plugin)
+_ZN9EtherCard7printIpEPKcPKh                      /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  webutil.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard7printIpEPKh                         webutil.cpp.o (symbol from plugin)
+_ZN9EtherCard7sendUdpEPKchjPKhj                   tcpip.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard7sendWolEPh                          tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard7setGwIpEPKh                         tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  EtherCard.cpp.o (symbol from plugin)
+_ZN9EtherCard7tcpSendEv                           tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard8delaycntE                           /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  EtherCard.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+_ZN9EtherCard8httpPostEPKcS1_S1_S1_PFvhjjE        tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard8tcpReplyEh                          tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard9browseUrlEPKcS1_S1_PFvhjjE          tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard9browseUrlEPKcS1_S1_S1_PFvhjjE       tcpip.cpp.o (symbol from plugin)
+_ZN9EtherCard9dhcpSetupEPKcb                      dhcp.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9EtherCard9urlDecodeEPc                        webutil.cpp.o (symbol from plugin)
+_ZN9EtherCard9urlEncodeEPcS0_                     webutil.cpp.o (symbol from plugin)
+_ZN9ModbusUDP10getSlaveIdEv                       ModbusUDP.cpp.o (symbol from plugin)
+_ZN9ModbusUDP10setSlaveIdEh                       ModbusUDP.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9ModbusUDP12getAnswerLenEv                     ModbusUDP.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9ModbusUDP13getAnswerBuffEv                    ModbusUDP.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9ModbusUDP4sendEPh                             ModbusUDP.cpp.o (symbol from plugin)
+_ZN9ModbusUDP4taskEPhj                            ModbusUDP.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9ModbusUDP7calcCrcEhPhh                        ModbusUDP.cpp.o (symbol from plugin)
+_ZN9ModbusUDP7calcCrcEhPhh.constprop.0            /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+_ZN9ModbusUDP7receiveEPh                          /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  ModbusUDP.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+_ZN9ModbusUDP7sendPDUEPh                          /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  ModbusUDP.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+_ZN9ModbusUDPC1Ev                                 ModbusUDP.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZN9ModbusUDPC2Ev                                 ModbusUDP.cpp.o (symbol from plugin)
+_ZNK5EERefdeEv                                    microLAN.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+_ZTV12BufferFiller                                tcpip.cpp.o (symbol from plugin)
+_ZTV14HardwareSerial                              HardwareSerial.cpp.o (symbol from plugin)
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+_ZTV5Print                                        Print.cpp.o (symbol from plugin)
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+_ZTV5Stash                                        stash.cpp.o (symbol from plugin)
+_ZTV6Stream                                       HardwareSerial0.cpp.o (symbol from plugin)
+_ZTV9ModbusUDP                                    ModbusUDP.cpp.o (symbol from plugin)
+__FUSE_REGION_LENGTH__                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__bad_interrupt                                   /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__brkval                                          /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__bss_end                                         /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+__bss_start                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+__ctors_end                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+__ctors_start                                     /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+__cxa_deleted_virtual                             abi.cpp.o (symbol from plugin)
+__cxa_pure_virtual                                /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  abi.cpp.o (symbol from plugin)
+                                                  Print.cpp.o (symbol from plugin)
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+__data_end                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+__data_load_start                                 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+__data_start                                      /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+__divmodhi4                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+__do_clear_bss                                    /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_clear_bss.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                                                  /tmp/cc2jcLOL.ltrans5.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+__do_copy_data                                    /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_copy_data.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+__do_global_ctors                                 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+__flp                                             /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__heap_end                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__heap_start                                      /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__init                                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__itoa                                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+                                                  webutil.cpp.o (symbol from plugin)
+__itoa_ncheck                                     /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+                                                  webutil.cpp.o (symbol from plugin)
+__ltoa_ncheck                                     /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+                                                  bufferfiller.cpp.o (symbol from plugin)
+__malloc_heap_end                                 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__malloc_heap_start                               /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__malloc_margin                                   /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+__mulhi_const_10                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(mul10.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+__muluhisi3                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+__stack                                           /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__strlen_P                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+                                                  stash.cpp.o (symbol from plugin)
+__tablejump2__                                    /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_tablejump2.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_ctors.o)
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+__udivmodhi4                                      /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodhi4.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+__udivmodsi4                                      /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_udivmodsi4.o)
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+__ultoa_common                                    /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ltoa_ncheck.o)
+__ultoa_ncheck                                    /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+__umulhisi3                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_umulhisi3.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_muluhisi3.o)
+__utoa_common                                     /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa_ncheck.o)
+__utoa_ncheck                                     /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+__vector_1                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_10                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_11                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_12                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_13                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_14                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_15                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_16                                       /tmp/cc2jcLOL.ltrans5.ltrans.o
+                                                  wiring.c.o (symbol from plugin)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_17                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_18                                       /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_19                                       /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  HardwareSerial0.cpp.o (symbol from plugin)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_2                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_20                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_21                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_22                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_23                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_24                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_25                                       /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_3                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_4                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_5                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_6                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_7                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_8                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_9                                        /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_default                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+__vectors                                         /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+_div                                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_divmodhi4.o)
+_exit                                             /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+abort                                             /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(abort.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+allOnes                                           /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  dhcp.cpp.o (symbol from plugin)
+atexit                                            main.cpp.o (symbol from plugin)
+atoi                                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(atoi.o)
+                                                  webutil.cpp.o (symbol from plugin)
+delay                                             /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  wiring.c.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+delayMicroseconds                                 wiring.c.o (symbol from plugin)
+                                                  OneWire.cpp.o (symbol from plugin)
+digitalRead                                       wiring_digital.c.o (symbol from plugin)
+digitalWrite                                      /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  wiring_digital.c.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+digital_pin_to_bit_mask_PGM                       wiring_digital.c.o (symbol from plugin)
+                                                  OneWire.cpp.o (symbol from plugin)
+digital_pin_to_port_PGM                           wiring_digital.c.o (symbol from plugin)
+                                                  OneWire.cpp.o (symbol from plugin)
+digital_pin_to_timer_PGM                          wiring_digital.c.o (symbol from plugin)
+e2str                                             microLAN.cpp.o (symbol from plugin)
+eeprom_read_byte                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  bufferfiller.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+eeprom_write_byte                                 /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+eeprom_write_r18                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libatmega328p.a(eewr_byte.o)
+ether                                             EtherCard.cpp.o (symbol from plugin)
+                                                  bufferfiller.cpp.o (symbol from plugin)
+                                                  stash.cpp.o (symbol from plugin)
+exit                                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+free                                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+init                                              wiring.c.o (symbol from plugin)
+                                                  main.cpp.o (symbol from plugin)
+initVariant                                       main.cpp.o (symbol from plugin)
+itoa                                              /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(itoa.o)
+listeners                                         udpserver.cpp.o (symbol from plugin)
+loop                                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+                                                  main.cpp.o (symbol from plugin)
+mSeconds                                          .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+main                                              /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  main.cpp.o (symbol from plugin)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
+malloc                                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(malloc.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+mb                                                /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+memcmp                                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcmp.o)
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+memcpy                                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy.o)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+memcpy_P                                          /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(memcpy_P.o)
+                                                  /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  tcpip.cpp.o (symbol from plugin)
+micros                                            wiring.c.o (symbol from plugin)
+millis                                            /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  wiring.c.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  dhcp.cpp.o (symbol from plugin)
+                                                  DallasTemperature.cpp.o (symbol from plugin)
+                                                  udp2modbus.cpp.o (symbol from plugin)
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+numListeners                                      udpserver.cpp.o (symbol from plugin)
+oneWire                                           microLAN.cpp.o (symbol from plugin)
+p_Value                                           .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+pinMode                                           /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  wiring_digital.c.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+                                                  enc28j60.cpp.o (symbol from plugin)
+                                                  OneWire.cpp.o (symbol from plugin)
+port_to_input_PGM                                 wiring_digital.c.o (symbol from plugin)
+                                                  OneWire.cpp.o (symbol from plugin)
+port_to_mode_PGM                                  wiring_digital.c.o (symbol from plugin)
+port_to_output_PGM                                wiring_digital.c.o (symbol from plugin)
+remote_ip                                         udp2modbus.cpp.o (symbol from plugin)
+remote_port                                       udp2modbus.cpp.o (symbol from plugin)
+sensors                                           /tmp/cc2jcLOL.ltrans3.ltrans.o
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans0.ltrans.o
+sensorsList                                       /tmp/cc2jcLOL.ltrans1.ltrans.o
+                                                  microLAN.cpp.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans4.ltrans.o
+                                                  udp2modbus.cpp.o (symbol from plugin)
+setup                                             .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+                                                  main.cpp.o (symbol from plugin)
+strncpy_P                                         /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strncpy_P.o)
+                                                  dhcp.cpp.o (symbol from plugin)
+strrev                                            /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(strrev.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(utoa_ncheck.o)
+                                                  /home/andov/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/libc.a(ultoa_ncheck.o)
+textToSend                                        udp2modbus.cpp.o (symbol from plugin)
+time                                              .pioenvs/nanoatmega328/src/main.cpp.o (symbol from plugin)
+timer0_millis                                     /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  wiring.c.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans5.ltrans.o
+timer0_overflow_count                             /tmp/cc2jcLOL.ltrans2.ltrans.o
+                                                  wiring.c.o (symbol from plugin)
+                                                  /tmp/cc2jcLOL.ltrans5.ltrans.o
+yield                                             hooks.c.o (symbol from plugin)
+                                                  wiring.c.o (symbol from plugin)
