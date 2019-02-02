@@ -63,25 +63,12 @@ float FuzzyAO::calculatePertinence(const FuzzySet * fs, float crispValue)
 
 void FuzzyAO::calculateInputPertinences(void)
 {
-  for(byte i = 0; i < _rulesCount;++i){
-    _pertinences[i].input = calculatePertinence(rules[i].Antecedent, this->crispInput);
-  }
+
 }
 
 
 bool FuzzyAO::fuzzify(){
-  resetFuzzySets();
-  calculateInputPertinences();
-/*
-  evaluateExpression();
 
-    // Truncado os conjuntos de saída
-    fuzzyOutputAux = this->fuzzyOutputs;
-    while(fuzzyOutputAux != NULL){
-        fuzzyOutputAux->fuzzyOutput->truncate();
-        fuzzyOutputAux = fuzzyOutputAux->next;
-    }
-*/
     return true;
 }
 
