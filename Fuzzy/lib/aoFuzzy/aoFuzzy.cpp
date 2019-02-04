@@ -4,8 +4,21 @@
 
 FuzzyAO::FuzzyAO(){
 }
-void FuzzyAO::begin(word rc){
-  _rulesCount = rc;
+void FuzzyAO::begin(FuzzySets *inputs,  FuzzySets * outputs,  pFuzzyRule * rules)
+{
+  _inputs = inputs;
+  _outputs = outputs;
+  _rules = rules;
+  _rulesCount = sizeof(&_rules)/sizeof(FuzzyRule);
+  _inputsCount = sizeof(&_inputs)/sizeof(FuzzyRule);
+  _outputsCount = sizeof(&_outputs)/sizeof(FuzzyRule);
+
+  Serial.print("inputs ");
+  Serial.println(_inputsCount);
+  Serial.print("outputs ");
+  Serial.println(_outputsCount);
+  Serial.print("rules ");
+  Serial.println(_rulesCount);
 }
 
 
@@ -25,8 +38,8 @@ void FuzzyAO::setInput( float crispValue){
 void FuzzyAO::resetFuzzySets(void)
 {
   for(byte i = 0; i < _rulesCount;++i){
-    _pertinences[i].input = 0.0f;
-    _pertinences[i].output = 0.0f;
+    // _pertinences[i].input = 0.0f;
+    // _pertinences[i].output = 0.0f;
   }
 }
 
@@ -68,8 +81,45 @@ void FuzzyAO::calculateInputPertinences(void)
 
 
 bool FuzzyAO::fuzzify(){
+  // fuzzyInputArray* fuzzyInputAux;
+  // fuzzyOutputArray *fuzzyOutputAux;
+  //
+  // fuzzyInputAux = this->fuzzyInputs;
+  // while(fuzzyInputAux != NULL){
+  //     fuzzyInputAux->fuzzyInput->resetFuzzySets();
+  //     fuzzyInputAux = fuzzyInputAux->next;
+  // }
+  //
+  // fuzzyOutputAux = this->fuzzyOutputs;
+  // while(fuzzyOutputAux != NULL){
+  //     fuzzyOutputAux->fuzzyOutput->resetFuzzySets();
+  //     fuzzyOutputAux = fuzzyOutputAux->next;
+  // }
+  //
+  // // Calculando a pertinência de todos os FuzzyInputs
+  // fuzzyInputAux = this->fuzzyInputs;
+  // while(fuzzyInputAux != NULL){
+  //     fuzzyInputAux->fuzzyInput->calculateFuzzySetPertinences();
+  //     fuzzyInputAux = fuzzyInputAux->next;
+  // }
+  //
+  // // Avaliando quais regras foram disparadas
+  // fuzzyRuleArray* fuzzyRuleAux;
+  // fuzzyRuleAux = this->_rules;
+  // // Calculando as pertinências de totos os FuzzyInputs
+  // while(fuzzyRuleAux != NULL){
+  //     fuzzyRuleAux->fuzzyRule->evaluateExpression();
+  //     fuzzyRuleAux = fuzzyRuleAux->next;
+  // }
+  //
+  // // Truncado os conjuntos de saída
+  // fuzzyOutputAux = this->fuzzyOutputs;
+  // while(fuzzyOutputAux != NULL){
+  //     fuzzyOutputAux->fuzzyOutput->truncate();
+  //     fuzzyOutputAux = fuzzyOutputAux->next;
+  // }
 
-    return true;
+  return true;
 }
 
 

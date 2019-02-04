@@ -9,6 +9,7 @@ typedef struct {
   float b;
   float c;
   float d;
+  float * pertinence;
 } FuzzySet, * pFuzzySet;
 
 
@@ -47,22 +48,17 @@ typedef struct {
 #define MODE_FS_FRA 3
 #define MODE_FRA_FRA 4
 
-typedef struct {
-  float input;
-  float output;
-} Pertinence;
-
-
-
-
 class FuzzyAO
 {
   private:
-    float crispInput;
-    float _output;
     word _rulesCount;
-    Pertinence _pertinences[];
+    pFuzzyRule *_rules;
+    word _inputsCount;
+    FuzzySets *_inputs;
+    word _outputsCount;
+    FuzzySets *_outputs;
 
+    float crispInput;
   protected:
     void setCrispInput(float crispInput);
     float getCrispInput();
@@ -71,11 +67,8 @@ class FuzzyAO
     float calculatePertinence(const FuzzySet * fs, float crispValue);
 
   public:
-    static const pFuzzyRule rules[];
-    static const FuzzySets inputs[];
-    static const FuzzySets outputs[];
     FuzzyAO();
-    void begin(word rc);
+    void begin(FuzzySets *inputs,  FuzzySets * outputs,  pFuzzyRule * rules);
 
     void setInput(float dist);
     bool fuzzify(void);
