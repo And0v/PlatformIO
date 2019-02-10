@@ -48,7 +48,8 @@ typedef struct {
 #define MODE_FS 1
 #define MODE_FS_FS 2
 #define MODE_FS_FRA 3
-#define MODE_FRA_FRA 4
+#define MODE_FRA_FS 4
+#define MODE_FRA_FRA 5
 
 class FuzzyAO {
 private:
@@ -75,6 +76,8 @@ protected:
 
   float getPertinence(FuzzySet *set);
   void setPertinence(FuzzySet *set, float pr);
+
+  void truncateFuzzySets(FuzzySets *sets);
 
 public:
   FuzzyAO();

@@ -143,74 +143,58 @@ void FuzzyAO::setPertinence(FuzzySet *set, float pr) {
 float FuzzyAO::antecedentEvaluate(FuzzyRuleAntecedent *antecedent) {
   FuzzyRuleAntecedent fa = {};
   memcpy_P(&fa, antecedent, sizeof(FuzzyRuleAntecedent));
-
+  float pr1 = 0.0;
+  float pr2 = 0.0;
   switch (fa.mode) {
   case MODE_FS:
     return getPertinence(fa.u1.set1);
     break;
-  case MODE_FS_FS: {
-    float pr1 = getPertinence(fa.u1.set1);
-    float pr2 = getPertinence(fa.u2.set2);
-    switch (fa.op) {
-    case OP_AND:
-      if ((pr1 > 0.0) and (pr2 > 0.0)) {
-        if (pr1 < pr2) {
-          return pr1;
-        } else {
-          return pr2;
-        }
-      } else {
-        return 0.0;
-      }
-      break;
-    case OP_OR:
-      if (pr1 > 0.0 or pr2 > 0.0) {
-        if (pr1 > pr2) {
-          return pr1;
-        } else {
-          return pr2;
-        }
-      } else {
-        return 0.0;
-      }
-      break;
-    default:
-      return 0.0;
-    }
-  } break;
-  case MODE_FRA_FRA: {
-    float ae1 = antecedentEvaluate(fa.u1.rAnt1);
-    float ae2 = antecedentEvaluate(fa.u2.rAnt2);
-    switch (fa.op) {
-    case OP_AND:
-      if ((ae1 > 0.0) and (ae1 > 0.0)) {
-        if (ae1 < ae1) {
-          return ae1;
-        } else {
-          return ae2;
-        }
-      } else {
-        return 0.0;
-      }
-      break;
-    case OP_OR:
-      if (ae1 > 0.0 or ae2 > 0.0) {
-        if (ae1 > ae2) {
-          return ae1;
-        } else {
-          return ae2;
-        }
-      } else {
-        return 0.0;
-      }
-      break;
-    default:
-      return 0.0;
-    }
-  } break;
+  case MODE_FS_FS:
+    pr1 = getPertinence(fa.u1.set1);
+    pr2 = getPertinence(fa.u2.set2);
+    break;
+  case MODE_FS_FRA:
+    pr1 = getPertinence(fa.u1.set1);
+    pr2 = antecedentEvaluate(fa.u2.rAnt2);
+    break;
+  case MODE_FRA_FS:
+    pr1 = antecedentEvaluate(fa.u1.rAnt1);
+    pr2 = getPertinence(fa.u2.set2);
+    break;
+  case MODE_FRA_FRA:
+    pr1 = antecedentEvaluate(fa.u1.rAnt1);
+    pr2 = antecedentEvaluate(fa.u2.rAnt2);
+    break;
   default:
     return 0.0;
   }
+  switch (fa.op) {
+  case OP_AND:
+    if ((pr1 > 0.0) and (pr2 > 0.0)) {
+      if (pr1 < pr2) {
+        return pr1;
+      } else {
+        return pr2;
+      }
+    } else {
+      return 0.0;
+    }
+    break;
+  case OP_OR:
+    if (pr1 > 0.0 or pr2 > 0.0) {
+      if (pr1 > pr2) {
+        return pr1;
+      } else {
+        return pr2;
+      }
+    } else {
+      return 0.0;
+    }
+    break;
+  default:
+    return 0.0;
+  }
+
   return 0.0;
 }
 bool FuzzyAO::consequentEvaluate(FuzzyRuleConsequent *consequent, float power) {
