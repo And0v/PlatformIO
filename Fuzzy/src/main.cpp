@@ -2,6 +2,8 @@
 #include "aoFuzzy.h"
 
 float pertinences[20];
+float inputValues[3];
+float outputValues[2];
 
 // Creating the FuzzySet to compond FuzzyInput distance
 const FuzzySet iClose PROGMEM = {0, 20, 20, 40, &pertinences[0]}; // Small distance
@@ -23,9 +25,11 @@ const FuzzySet iHot PROGMEM = {24, 25, 30, 30, &pertinences[9]};
 const pFuzzySet temperature[] PROGMEM = {&iCold, &iGood, &iHot};
 /* I N P U T S */
 const FuzzySets inputs[] PROGMEM = {
-  {.size = 3, .sets = dst},
-  {.size = 4, .sets = inpSpeed},
-  {.size = 3, .sets = temperature}
+  {.currValue = &inputValues[0], .size = 3, .sets = dst},
+  {.currValue = &inputValues[1], .size = 4, .sets = inpSpeed},
+  {.currValue = &inputValues[3], .size = 3, .sets = temperature},
+  {.currValue = NULL, .size = 0, .sets = NULL}
+
 };
 
 const FuzzySet oMinimum PROGMEM = {0, 20, 20, 40, &pertinences[10]};
@@ -42,8 +46,9 @@ const pFuzzySet outSpeed[] PROGMEM = {&oStoped, &oSlow, &oNormal, &oQuick};
 
 /* O U T P U T S */
 const FuzzySets  outputs[] PROGMEM = {
-  {.size = 3, .sets = risk},
-  {.size = 4, .sets = outSpeed}
+  {.currValue = &outputValues[0], .size = 3, .sets = risk},
+  {.currValue = &outputValues[1], .size = 4, .sets = outSpeed},
+  {.currValue = NULL, .size = 0, .sets = NULL}
 };
 /*******************************
 * R U L E 1                    *
@@ -118,20 +123,21 @@ const FuzzyRule rule3 PROGMEM = {
 
 
 const pFuzzyRule rules[] PROGMEM = {
-  &rule1, &rule2, &rule3
+  &rule1, &rule2, &rule3, NULL
 };
 
 FuzzyAO fuzzy;
 
-float input, output;
+float output;
 
 void setup() {
-
   Serial.begin(115200);
   Serial.println("Setup...");
 //  int rulesCount = sizeof(FuzzyAO::rules)/sizeof(FuzzyRule);
   fuzzy.begin(inputs, outputs, rules);
   Serial.println("...Done!");
+  fuzzy.fuzzify();
+
 }
 
 float getTemp(){
