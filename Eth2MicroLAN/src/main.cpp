@@ -22,16 +22,6 @@ void * p_Value = NULL;
 void loop() {
   unsigned long mSec = millis();
 
-  void * pVl = malloc(2);
-  if (p_Value != pVl){
-    p_Value = pVl;
-    Serial.print("malloc ");
-    Serial.print((word)p_Value);
-    Serial.print(" ");
-    Serial.println(mSec);
-  }
-  free(pVl);
-
   if (mSec > mSeconds){
     mSeconds += 1000;
     Events |= EV_TIMER_SEC;
