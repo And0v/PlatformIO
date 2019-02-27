@@ -33,7 +33,15 @@ typedef struct FuzzyRuleAntecedentS {
 typedef struct {
   const word size;
   const pFuzzySet *sets;
+  FuzzyComposition *composition;
 } FuzzyRuleConsequent;
+
+typedef struct {
+  float a;
+  float b;
+  float v;
+
+} FuzzyComposition, *pFuzzyComposition;
 
 typedef struct {
   const FuzzyRuleAntecedent *antecedent;

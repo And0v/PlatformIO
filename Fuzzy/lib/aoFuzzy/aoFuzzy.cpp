@@ -88,7 +88,8 @@ float FuzzyAO::calculatePertinence(FuzzySet *set, float crispValue) {
   memcpy_P(&fs, set, sizeof(FuzzySet));
 
   if (crispValue < fs.a) {
-    if (fs.a == fs.b && fs.b != fs.c && fs.c != fs.d) {
+    if (fs.a == fs.b &&
+        ((fs.b != fs.c && fs.c != fs.d) || (fs.b == fs.c && fs.c != fs.d))) {
       pertinence = 1.0;
     } else {
       pertinence = 0.0;
