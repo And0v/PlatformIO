@@ -40,7 +40,7 @@ void setupPID()
   inputIndex = 0;
   //Setup the pid
   myPID.SetMode(AUTOMATIC);
-  myPID.SetOutputLimits(30, 100);
+  myPID.SetOutputLimits(5, 100);
   myPID.SetSampleTime(30000);
 
   if(tuning)
@@ -49,6 +49,7 @@ void setupPID()
     changeAutoTune();
     tuning=true;
   }
+  digitalWrite(powerPin, 1);
   pinMode(powerPin, OUTPUT);
 
   mb_Hreg(PID_AT_HREG, (word)(tuning?1:0));
@@ -309,9 +310,9 @@ void setOutputPower(){
   float time = (float)(now-powerTime);
 
   if (time < output/100.0*powerPeriod){
-    digitalWrite(powerPin, 1);
-  }else{
     digitalWrite(powerPin, 0);
+  }else{
+    digitalWrite(powerPin, 1);
   }
 
 }
