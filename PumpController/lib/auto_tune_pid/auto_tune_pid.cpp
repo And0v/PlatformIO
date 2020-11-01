@@ -8,8 +8,8 @@
 
 
 byte ATuneModeRemember=2;
-double input=0, output=0, setpoint=55;
-double kp=0.5,ki=0.1,kd=.05;
+double input=0, output=0, setpoint=28;
+double kp=0.05,ki=0.01,kd=.005;
 
 double kpmodel=1.5, taup=100, theta[50];
 double outputStart=5;
@@ -123,7 +123,7 @@ void readPIDParams(){
       Serial.print("- SETPOINT: ");
       float fValue = mb_Hreg(PID_SETPOINT_HREG);
       Serial.print(fValue);
-      if ((fValue != NAN)&&(fValue >=30)&&(fValue<=80)){
+      if ((fValue != NAN)&&(fValue >=25)&&(fValue<=80)){
         setpoint = fValue;
         Serial.println(" - OK");
       }else{
