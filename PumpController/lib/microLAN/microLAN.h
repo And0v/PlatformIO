@@ -15,7 +15,7 @@
 typedef  struct{
     DeviceAddress address;
     float value;
-    byte status;
+    word status;
 } SensorDef;
 
 extern SensorDef sensorsList[SENSORS_COUNT];
