@@ -445,7 +445,7 @@ bool rwKiHreg(byte mode, word offset, byte *data, word len)
     Serial.print("write, ");
     float value = *((float *)data);
     Serial.print(value, 3);
-    if ((value != NAN) && (value > 0.0))
+    if ((value != NAN) && (value >= 0.0))
     {
       ki = value;
       myPID.SetTunings(kp, ki, kd);
@@ -478,7 +478,7 @@ bool rwKdHreg(byte mode, word offset, byte *data, word len)
     Serial.print("write, ");
     float value = *((float *)data);
     Serial.print(value, 3);
-    if ((value != NAN) && (value > 0.0))
+    if ((value != NAN) && (value >= 0.0))
     {
       kd = value;
       myPID.SetTunings(kp, ki, kd);
