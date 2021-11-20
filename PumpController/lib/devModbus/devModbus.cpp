@@ -34,7 +34,8 @@ void setupModbus(){
   mb.addHreg(PID_KD_HREG+1);
   mb.addHreg(PID_SETPOINT_HREG);
   mb.addHreg(PID_SETPOINT_HREG+1);
-
+  mb.addHreg(PID_PWR_SUM_HREG);
+  mb.addHreg(PID_PWR_SUM_HREG+1);
 }
 void loopModbus(){
   if (Events & EV_CONVERSION_COMPLETE){

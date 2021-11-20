@@ -30,6 +30,7 @@
 #define PID_KI_HREG       306
 #define PID_KD_HREG       308
 #define PID_SETPOINT_HREG 310
+#define PID_PWR_SUM_HREG  312
 
 extern ModbusSerial mb;
 

@@ -30,10 +30,11 @@ void changeAutoTune();
 
 /////////////////////
 const int powerPin = 13;
-unsigned long powerPeriod = 30000;
+unsigned long powerPeriod = 60000;
 unsigned long powerTime = 0;
 unsigned long powerTimeLast = 0;
 float powerSum = 0.0;
+float powerSumReg = 0.0;
 /////////////////////////////////////////////////////
 
 
@@ -42,9 +43,9 @@ void setupPID()
   inputIndex = 0;
   //Setup the pid
   myPID.SetMode(AUTOMATIC);
-  double maxOut = 90.0*((double)powerPeriod)/1000.0;
-  myPID.SetOutputLimits(maxOut*0.05, maxOut);
+  myPID.SetOutputLimits(5, 90);
   myPID.SetSampleTime(powerPeriod);
+  myPID.SetTunings(kp, ki, kd);
 
   if(tuning)
   {
@@ -236,6 +237,7 @@ void loopPID()
     }
   }
   setOutputPower(pipe.value);
+  mb_Hreg(PID_PWR_SUM_HREG, (float)powerSumReg);
   
   //send-receive with processing if it's time
   if(millis()>serialTime)
@@ -317,11 +319,14 @@ void setOutputPower(float pipe){
     powerTimeLast = 0;
     powerSum = 0;
   }
-  powerSum += ((float)(powerTimeNow-powerTimeLast))/1000.0*pipe;
-
+  
+  powerSum += ((float)(powerTimeNow-powerTimeLast))*pipe/((float)powerPeriod);
+  
   if (powerSum < output){
+    powerSumReg = powerSum;
     digitalWrite(powerPin, 0);
   }else{
+    powerSumReg = 0.0;
     digitalWrite(powerPin, 1);
   }
   powerTimeLast = powerTimeNow;
