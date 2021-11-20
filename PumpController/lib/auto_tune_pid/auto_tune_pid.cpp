@@ -8,8 +8,8 @@
 
 
 byte ATuneModeRemember=2;
-double input=0, output=0, setpoint=28;
-double kp=0.05,ki=0.01,kd=.005;
+double input=0, output=0, setpoint=34;
+double kp=3.92,ki=0.1,kd=.05;
 
 double kpmodel=1.5, taup=100, theta[50];
 double outputStart=5;
@@ -32,6 +32,8 @@ void changeAutoTune();
 const int powerPin = 13;
 unsigned long powerPeriod = 30000;
 unsigned long powerTime = 0;
+unsigned long powerTimeLast = 0;
+float powerSum = 0.0;
 /////////////////////////////////////////////////////
 
 
@@ -40,8 +42,9 @@ void setupPID()
   inputIndex = 0;
   //Setup the pid
   myPID.SetMode(AUTOMATIC);
-  myPID.SetOutputLimits(5, 100);
-  myPID.SetSampleTime(30000);
+  double maxOut = 90.0*((double)powerPeriod)/1000.0;
+  myPID.SetOutputLimits(maxOut*0.05, maxOut);
+  myPID.SetSampleTime(powerPeriod);
 
   if(tuning)
   {
@@ -63,7 +66,7 @@ void setupPID()
 }
 void SerialSend();
 void SerialReceive();
-void setOutputPower();
+void setOutputPower(float);
 
 void readPIDParams(){
 
@@ -148,7 +151,7 @@ void readPIDParams(){
       Serial.print("- KI: ");
       float fValue = mb_Hreg(PID_KI_HREG);
       Serial.print(fValue, 3);
-      if ((fValue != NAN)&&(fValue > 0.0)){
+      if ((fValue != NAN)&&(fValue >= 0.0)){
         ki = fValue;
         ++pidUpdate;
         Serial.println(" - OK");
@@ -160,7 +163,7 @@ void readPIDParams(){
       Serial.print("- KD: ");
       float fValue = mb_Hreg(PID_KD_HREG);
       Serial.print(fValue, 3);
-      if ((fValue != NAN)&&(fValue > 0.0)){
+      if ((fValue != NAN)&&(fValue >= 0.0)){
         ki = fValue;
         ++pidUpdate;
         Serial.println(" - OK");
@@ -184,12 +187,14 @@ void loopPID()
   Events &= ~EV_PID;
 
   readPIDParams();
+  SensorDef pipe = sensorsList[SENSOR_PIPE];
+ 
 
   if ((inputIndex <0)&&(inputIndex>=SENSORS_COUNT)){
     Serial.print("Incorrect inputIndex: ");
     Serial.println(inputIndex);
     output = 50;
-    setOutputPower();
+    setOutputPower(pipe.value);
     return;
   }
 
@@ -198,7 +203,7 @@ void loopPID()
     Serial.print("Input sensor error! Sensor Index: ");
     Serial.println(inputIndex);
     output = 50;
-    setOutputPower();
+    setOutputPower(pipe.value);
     return;
   }
   input = sensor.value;
@@ -230,8 +235,8 @@ void loopPID()
       mb_Hreg(PID_OUTPUT_HREG, (float)output);
     }
   }
-  setOutputPower();
-
+  setOutputPower(pipe.value);
+  
   //send-receive with processing if it's time
   if(millis()>serialTime)
   {
@@ -296,7 +301,7 @@ void SerialReceive()
   }
 }
 
-void setOutputPower(){
+void setOutputPower(float pipe){
 
   unsigned long now = millis();
 
@@ -307,12 +312,18 @@ void setOutputPower(){
   if ((now - powerTime)>powerPeriod){
     powerTime += powerPeriod;
   }
-  float time = (float)(now-powerTime);
+  unsigned long powerTimeNow = now - powerTime;
+  if (powerTimeLast > powerTimeNow){
+    powerTimeLast = 0;
+    powerSum = 0;
+  }
+  powerSum += ((float)(powerTimeNow-powerTimeLast))/1000.0*pipe;
 
-  if (time < output/100.0*powerPeriod){
+  if (powerSum < output){
     digitalWrite(powerPin, 0);
   }else{
     digitalWrite(powerPin, 1);
   }
+  powerTimeLast = powerTimeNow;
 
 }
