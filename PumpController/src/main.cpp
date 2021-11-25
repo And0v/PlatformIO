@@ -25,8 +25,6 @@ void setup() {
   Seconds = 0;
 }
 
-
-
 void loop() {
 
   long mSec = millis();

@@ -9,6 +9,7 @@ void setupPID();
 void loopPID();
 
 
+bool rwSmoothHreg(byte mode, word offset, byte *data, word len);
 bool rwTuningHreg(byte mode, word offset, byte *data, word len);
 bool rwUpdateHreg(byte mode, word offset, byte *data, word len);
 bool rwModeHreg(byte mode, word offset, byte *data, word len);

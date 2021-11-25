@@ -2,8 +2,8 @@
     Modbus.cpp - Source for Modbus Base Library
     Copyright (C) 2014 Andr� Sarmento Barbosa
 */
+#include <Arduino.h>
 #include "aoModbus.h"
-#include "main.h"
 
 ModbusAO::ModbusAO()
 {
@@ -105,7 +105,7 @@ byte ModbusAO::rReg(word address, byte *buff)
         }
         else
         {
-            reg->callback(1, (word)reg->pValue, (byte *)&value, 2);
+            reg->callback(0, (word)reg->pValue, (byte *)&value, 2);
             reverseCopy(buff, &value, 2);
         }
         rst = 1;
@@ -117,7 +117,7 @@ byte ModbusAO::rReg(word address, byte *buff)
         }
         else
         {
-            reg->callback(1, (word)reg->pValue, (byte *)&value, 4);
+            reg->callback(0, (word)reg->pValue, (byte *)&value, 4);
             reverseCopy(buff, &value, 4);
         }
         rst = 2;
@@ -165,11 +165,11 @@ byte ModbusAO::wReg(word address, byte *buff)
     case REG_RAM:
         if (reg->callback == NULL)
         {
-            reverseCopy(reg->pValue, buff, 2);
+            memcpy(reg->pValue, buff, 2);
         }
         else
         {
-            reverseCopy(&value, buff, 2);
+            memcpy(&value, buff, 2);
             reg->callback(1, (word)reg->pValue, (byte *)&value, 2);
         }
         rst = 1;
@@ -177,11 +177,11 @@ byte ModbusAO::wReg(word address, byte *buff)
     case REG_RAM2:
         if (reg->callback == NULL)
         {
-            reverseCopy(reg->pValue, buff, 4);
+            memcpy(reg->pValue, buff, 4);
         }
         else
         {
-            reverseCopy(&value, buff, 4);
+            memcpy(&value, buff, 4);
             reg->callback(1, (word)reg->pValue, (byte *)&value, 4);
         }
         rst = 2;
@@ -194,7 +194,7 @@ byte ModbusAO::wReg(word address, byte *buff)
         }
         else
         {
-            reverseCopy(&value, buff, 2);
+            memcpy(&value, buff, 2);
             reg->callback(1, (word)reg->pValue, (byte *)&value, 2);
             rst = 1;
         }
@@ -206,7 +206,7 @@ byte ModbusAO::wReg(word address, byte *buff)
         }
         else
         {
-            reverseCopy(&value, buff, 4);
+            memcpy(&value, buff, 4);
             reg->callback(1, (word)reg->pValue, (byte *)&value, 4);
             rst = 2;
         }
@@ -388,7 +388,7 @@ void ModbusAO::readRegisters(word startreg, word numregs)
     _frame[1] = _len - 2; //byte count
 
     word i = 0;
-    while (numregs--)
+    while (numregs)
     {
         //retrieve the value from the register bank for the current register
         byte regs = this->rHreg(startreg + i, &_frame[2 + i * 2]);
@@ -398,6 +398,11 @@ void ModbusAO::readRegisters(word startreg, word numregs)
             return;
         }
         i += regs;
+        if (numregs < regs){
+            this->exceptionResponse(MB_FC_READ_INPUT_REGS, MB_EX_SLAVE_FAILURE);
+            return;
+        }
+        numregs -= regs;
         // //retrieve the value from the register bank for the current register
         // val = this->Hreg(startreg + i);
         // //write the high byte of the register value
@@ -414,7 +419,7 @@ void ModbusAO::writeSingleRegister(word reg, word value)
 {
     //No necessary verify illegal value (EX_ILLEGAL_VALUE) - because using word (0x0000 - 0x0FFFF)
     //Check Address and execute (reg exists?)
-    if (!this->Hreg(reg, value))
+    if (this->wHreg(reg, (byte*)&value) != 1)
     {
         this->exceptionResponse(MB_FC_WRITE_REG, MB_EX_ILLEGAL_ADDRESS);
         return;
@@ -654,7 +659,7 @@ void ModbusAO::readInputRegisters(word startreg, word numregs)
     _frame[1] = _len - 2;
 
     word i = 0;
-    while (numregs--)
+    while (numregs)
     {
         //retrieve the value from the register bank for the current register
         byte regs = this->rIreg(startreg + i, &_frame[2 + i * 2]);
@@ -664,6 +669,11 @@ void ModbusAO::readInputRegisters(word startreg, word numregs)
             return;
         }
         i += regs;
+        if (numregs < regs){
+            this->exceptionResponse(MB_FC_READ_INPUT_REGS, MB_EX_SLAVE_FAILURE);
+            return;
+        }
+        numregs -= regs;
     }
 
     _reply = MB_REPLY_NORMAL;

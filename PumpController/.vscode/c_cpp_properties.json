@@ -1,10 +1,12 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
 {
     "configurations": [
         {
-            "name": "!!! WARNING !!! AUTO-GENERATED FILE, PLEASE DO NOT MODIFY IT AND USE https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags"
-        },
-        {
-            "name": "Win32",
+            "name": "PlatformIO",
             "includePath": [
                 "d:/PlatformIO/PumpController/include",
                 "d:/PlatformIO/PumpController/src",
@@ -15,6 +17,7 @@
                 "d:/PlatformIO/PumpController/lib/microLAN",
                 "C:/Users/andov/.platformio/lib/DallasTemperature",
                 "C:/Users/andov/.platformio/lib/OneWire",
+                "d:/PlatformIO/PumpController/lib/aoCalc",
                 "d:/PlatformIO/PumpController/lib/aoModbusRTU",
                 "d:/PlatformIO/PumpController/lib/aoModbus",
                 "d:/PlatformIO/PumpController/lib/aoEEPROM",
@@ -44,6 +47,7 @@
                     "d:/PlatformIO/PumpController/lib/microLAN",
                     "C:/Users/andov/.platformio/lib/DallasTemperature",
                     "C:/Users/andov/.platformio/lib/OneWire",
+                    "d:/PlatformIO/PumpController/lib/aoCalc",
                     "d:/PlatformIO/PumpController/lib/aoModbusRTU",
                     "d:/PlatformIO/PumpController/lib/aoModbus",
                     "d:/PlatformIO/PumpController/lib/aoEEPROM",
@@ -63,7 +67,7 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=50003",
+                "PLATFORMIO=50200",
                 "ARDUINO_AVR_MEGA2560",
                 "F_CPU=16000000L",
                 "ARDUINO_ARCH_AVR",
@@ -71,7 +75,6 @@
                 "__AVR_ATmega2560__",
                 ""
             ],
-            "intelliSenseMode": "gcc-x64",
             "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerPath": "C:/Users/andov/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",

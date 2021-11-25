@@ -14,10 +14,10 @@ double kp = 0.5, ki = 0.1, kd = .05;
 
 double kpmodel = 1.5, taup = 100, theta[50];
 double outputStart = 5;
-double aTuneStep = 30, aTuneNoise = 1, aTuneStartValue = 50;
-unsigned int aTuneLookBack = 20;
+//double aTuneStep = 30, aTuneNoise = 1, aTuneStartValue = 50;
+//unsigned int aTuneLookBack = 20;
 
-word tuning = false;
+//word tuning = false;
 unsigned long modelTime, serialTime;
 
 PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
@@ -43,12 +43,12 @@ void setupPID()
   myPID.SetOutputLimits(5, 100);
   myPID.SetSampleTime(30000);
 
-  if (tuning)
-  {
-    tuning = false;
-    changeAutoTune();
-    tuning = true;
-  }
+  // if (tuning)
+  // {
+  //   tuning = false;
+  //   changeAutoTune();
+  //   tuning = true;
+  // }
   digitalWrite(powerPin, 1);
   pinMode(powerPin, OUTPUT);
 
@@ -79,39 +79,41 @@ void loopPID()
     return;
   }
 
-  SensorDef sensor = sensorsList[inputIndex];
-  if (sensor.status != SENSOR_STATUS_OK)
+  CalcDef calc = sensorsCalc[inputIndex];
+  if (calc.state != CALC_STATE_OK)
   {
     Serial.print("Input sensor error! Sensor Index: ");
     Serial.println(inputIndex);
-    output = 50;
+    output = 20;
     setOutputPower();
     return;
   }
-  input = sensor.value;
+  
+  SensorDef &inpValues = sensorsValues[inputIndex];
+  input = inpValues.value;
   // mb_Hreg(PID_INPUT_HREG, (float)input);
 
-  if (tuning)
-  {
-    byte val = (aTune.Runtime());
-    if (val != 0)
-    {
-      tuning = false;
-    }
-    if (!tuning)
-    { //we're done, set the tuning parameters
-      kp = aTune.GetKp();
-      ki = aTune.GetKi();
-      kd = aTune.GetKd();
-      myPID.SetTunings(kp, ki, kd);
-      // mb_Hreg(PID_KI_HREG, (float)myPID.GetKi());
-      // mb_Hreg(PID_KP_HREG, (float)myPID.GetKp());
-      // mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
-      AutoTuneHelper(false);
-    }
-    // mb_Hreg(PID_OUTPUT_HREG, (float)output);
-  }
-  else
+  // if (tuning)
+  // {
+  //   byte val = (aTune.Runtime());
+  //   if (val != 0)
+  //   {
+  //     tuning = false;
+  //   }
+  //   if (!tuning)
+  //   { //we're done, set the tuning parameters
+  //     kp = aTune.GetKp();
+  //     ki = aTune.GetKi();
+  //     kd = aTune.GetKd();
+  //     myPID.SetTunings(kp, ki, kd);
+  //     // mb_Hreg(PID_KI_HREG, (float)myPID.GetKi());
+  //     // mb_Hreg(PID_KP_HREG, (float)myPID.GetKp());
+  //     // mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
+  //     AutoTuneHelper(false);
+  //   }
+  //   // mb_Hreg(PID_OUTPUT_HREG, (float)output);
+  // }
+  // else
   {
     myPID.Compute();
     if (myPID.GetMode() == AUTOMATIC)
@@ -130,37 +132,37 @@ void loopPID()
   }
 }
 
-void changeAutoTune()
-{
-  if (!tuning)
-  {
-    //Set the output to the desired starting frequency.
-    output = aTuneStartValue;
-    aTune.SetNoiseBand(aTuneNoise);
-    aTune.SetOutputStep(aTuneStep);
-    aTune.SetLookbackSec((int)aTuneLookBack);
-    AutoTuneHelper(true);
-    tuning = true;
-  }
-  else
-  { //cancel autotune
-    aTune.Cancel();
-    tuning = false;
-    AutoTuneHelper(false);
-  }
-  // mb_Hreg(PID_AT_HREG, (word)(tuning ? 1 : 0));
-}
+// void changeAutoTune()
+// {
+//   if (!tuning)
+//   {
+//     //Set the output to the desired starting frequency.
+//     output = aTuneStartValue;
+//     aTune.SetNoiseBand(aTuneNoise);
+//     aTune.SetOutputStep(aTuneStep);
+//     aTune.SetLookbackSec((int)aTuneLookBack);
+//     AutoTuneHelper(true);
+//     tuning = true;
+//   }
+//   else
+//   { //cancel autotune
+//     aTune.Cancel();
+//     tuning = false;
+//     AutoTuneHelper(false);
+//   }
+//   // mb_Hreg(PID_AT_HREG, (word)(tuning ? 1 : 0));
+// }
 
-void AutoTuneHelper(boolean start)
-{
-  if (start)
-    ATuneModeRemember = myPID.GetMode();
-  else
-  {
-    myPID.SetMode(ATuneModeRemember);
-    // mb_Hreg(PID_MOD_HREG, (word)myPID.GetMode());
-  }
-}
+// void AutoTuneHelper(boolean start)
+// {
+//   if (start)
+//     ATuneModeRemember = myPID.GetMode();
+//   else
+//   {
+//     myPID.SetMode(ATuneModeRemember);
+//     // mb_Hreg(PID_MOD_HREG, (word)myPID.GetMode());
+//   }
+// }
 
 void SerialSend()
 {
@@ -173,11 +175,11 @@ void SerialSend()
   Serial.print("output: ");
   Serial.print(output);
   Serial.print(" ");
-  if (tuning)
-  {
-    Serial.println("tuning mode");
-  }
-  else
+  // if (tuning)
+  // {
+  //   Serial.println("tuning mode");
+  // }
+  // else
   {
     Serial.print("kp: ");
     Serial.print(myPID.GetKp());
@@ -197,8 +199,9 @@ void SerialReceive()
   {
     char b = Serial.read();
     Serial.flush();
-    if ((b == '1' && !tuning) || (b != '1' && tuning))
-      changeAutoTune();
+    // if ((b == '1' && !tuning) || (b != '1' && tuning)){
+    //   changeAutoTune();
+    // }
   }
 }
 
@@ -227,38 +230,38 @@ void setOutputPower()
   }
 }
 
-bool rwTuningHreg(byte mode, word offset, byte *data, word len)
-{
-  Serial.print("- rwAT: ");
-  if (len != 2)
-  {
-    return false;
-  }
-  else if ((mode == EE_READ))
-  {
-    Serial.print("read, ");
-    Serial.println(tuning);
-    *((word *)data) = tuning;
-  }
-  else if (mode == EE_WRITE)
-  {
-    Serial.print("write, ");
-    word value = *((word *)data);
-    Serial.print(value);
-    if (tuning != (bool)value)
-    {
-      changeAutoTune();
-      rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
-    }
-    else
-    {
-      Serial.println(" - Error");
-      return false;
-    }
-  }
-  return true;
-}
+// bool rwTuningHreg(byte mode, word offset, byte *data, word len)
+// {
+//   Serial.print("- rwAT: ");
+//   if (len != 2)
+//   {
+//     return false;
+//   }
+//   else if ((mode == EE_READ))
+//   {
+//     Serial.print("read, ");
+//     Serial.println(tuning);
+//     *((word *)data) = tuning;
+//   }
+//   else if (mode == EE_WRITE)
+//   {
+//     Serial.print("write, ");
+//     word value = *((word *)data);
+//     Serial.print(value);
+//     if (tuning != (bool)value)
+//     {
+//       changeAutoTune();
+//       rwEEMEM(EE_WRITE, offset, data, len);
+//       Serial.println(" - OK");
+//     }
+//     else
+//     {
+//       Serial.println(" - Error");
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 bool rwModeHreg(byte mode, word offset, byte *data, word len)
 {
   Serial.print("- rwMODE: ");
@@ -281,39 +284,6 @@ bool rwModeHreg(byte mode, word offset, byte *data, word len)
     if (((value & ~1) == 0) && ((word)myPID.GetMode() != value))
     {
       myPID.SetMode(value);
-      rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
-    }
-    else
-    {
-      Serial.println(" - Error");
-      return false;
-    }
-  }
-  return true;
-
-}
-bool rwIndexHreg(byte mode, word offset, byte *data, word len)
-{
-  Serial.print("- rwINDEX: ");
-  if (len != 2)
-  {
-    return false;
-  }
-  else if ((mode == EE_READ))
-  {
-    Serial.print("read, ");
-    Serial.println(inputIndex);
-    *((word *)data) = inputIndex;
-  }
-  else if (mode == EE_WRITE)
-  {
-    Serial.print("write, ");
-    word value = *((word *)data);
-    Serial.print(value);
-    if ((value >= 0) && (value < SENSORS_COUNT))
-    {
-      inputIndex = value;
       rwEEMEM(EE_WRITE, offset, data, len);
       Serial.println(" - OK");
     }
@@ -493,6 +463,89 @@ bool rwKdHreg(byte mode, word offset, byte *data, word len)
   }
   return true;
 }
+bool rwSmoothHreg(byte mode, word offset, byte *data, word len)
+{
+  word *smooth = (word *)offset;
+  Serial.print("- rwSmooth: ");
+  if (len != 2)
+  {
+    return false;
+  }
+  else if ((mode == EE_READ))
+  {
+    Serial.print("read, ");
+    Serial.println(*smooth, 3);
+    *((word *)data) = *smooth;
+  }
+  else if (mode == EE_WRITE)
+  {
+    word ee_offset = 65535;
+    for(byte i = 0; i < SENSORS_COUNT;++i){
+      if ( sensorsCalc[i].smooth == offset ){
+        ee_offset = EE_SMOOTH+i*2;
+      }
+    }
+    Serial.print("write, ");
+    word value = *((word *)data);
+    Serial.print(value);
+    if ((value < 10)&&(ee_offset != 65535))
+    {
+      *smooth = value;
+      rwEEMEM(EE_WRITE, ee_offset, data, len);
+      Serial.println(" - OK");
+    }
+    else
+    {
+      Serial.println(" - Error");
+      return false;
+    }
+  }
+  return true;
+}
+
+
+bool rwIndexHreg(byte mode, word offset, byte *data, word len)
+{
+  word *index = (word *)offset;
+  Serial.print("- rwIndex: ");
+  if (len != 2)
+  {
+    return false;
+  }
+  else if ((mode == EE_READ))
+  {
+    Serial.print("read, ");
+    Serial.println(*index, 3);
+    *((word *)data) = *index;
+  }
+  else if (mode == EE_WRITE)
+  {
+    word ee_offset = 65535;
+    for(byte i = 0; i < SENSORS_COUNT;++i){
+      if ( sensorsCalc[i].port == offset ){
+        ee_offset = EE_INDEX+i*2;
+      }
+    }
+    Serial.print("write, ");
+    word value = *((word *)data);
+    Serial.print(value);
+    if ((value < 10)&&(ee_offset != 65535))
+    {
+      *index = value;
+      rwEEMEM(EE_WRITE, ee_offset, data, len);
+      Serial.println(" - OK");
+    }
+    else
+    {
+      Serial.println(" - Error");
+      return false;
+    }
+  }
+  return true;
+
+}
+
+
 
 bool rwUpdateHreg(byte mode, word offset, byte *data, word len){
   Serial.print("- rwREINIT: ");
@@ -528,14 +581,43 @@ void readEEPROMData()
 {
   Serial.print("readEEPROMData");
   word value;
-  rwEEMEM(EE_READ, EE_AT, (byte *)&tuning, 2);
+  // rwEEMEM(EE_READ, EE_AT, (byte *)&tuning, 2);
+  // if (tuning > 1){
+  //   tuning = 0;
+  // }
   rwEEMEM(EE_READ, EE_MODE, (byte *)&value, 2);
+  if (value > 1){
+    value = 0;
+  }
   myPID.SetMode(value);
-  rwEEMEM(EE_READ, EE_INP_IDX, (byte *)&inputIndex, 2);
+
+  for(byte i = 0; i < SENSORS_COUNT; ++i){
+    rwEEMEM(EE_READ, EE_INDEX, (void*)&value, 2);
+    if (value >= SENSORS_COUNT){
+      value = i;
+    }
+    sensorsCalc[i].port = value;
+  }
+
   rwEEMEM(EE_READ, EE_OUTPUT, (byte *)&output, 4);
+  if ((isnan(output))||(output < 0)||(output > 100)){
+    output = 0;
+  }
   rwEEMEM(EE_READ, EE_SETPNT, (byte *)&setpoint, 4);
+  if ((isnan(setpoint))||(setpoint < 30)||(setpoint > 60)){
+    setpoint = 30;
+  }
   rwEEMEM(EE_READ, EE_KP, (byte *)&kp, 4);
+  if ((isnan(kp))||(kp <= 0)){
+    kp = 1;
+  }
   rwEEMEM(EE_READ, EE_KI, (byte *)&ki, 4);
+  if ((isnan(ki))||(ki < 0)){
+    ki = 0;
+  }
   rwEEMEM(EE_READ, EE_KD, (byte *)&kd, 4);
+  if ((isnan(kd))||(kd < 0)){
+    kd = 0;
+  }
   myPID.SetTunings(kp, ki, kd);
 }

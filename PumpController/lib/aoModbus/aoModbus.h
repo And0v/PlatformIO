@@ -2,8 +2,6 @@
     Modbus.h - Header for Modbus Base Library
     Copyright (C) 2014 Andr� Sarmento Barbosa
 */
-#include "Arduino.h"
-
 #ifndef MODBUS_AO_H
 #define MODBUS_AO_H
 #define MODBUS_AO_VERSION	20201031
@@ -29,6 +27,7 @@ typedef bool (*ModbusCallback)(byte mode, word offset,  byte * data, word len);
 #define ISTS(addr, ptr) OFFSET_ISTS+addr, REG_RAM, ptr, (ModbusCallback)0
 #define IREG(addr, ptr) OFFSET_IREG+addr, REG_RAM, ptr, (ModbusCallback)0
 #define IREG2(addr, ptr) OFFSET_IREG+addr, REG_RAM2, ptr, (ModbusCallback)0
+#define IREG2_f(addr, ptr, ptr_func) OFFSET_IREG+addr, REG_RAM2, ptr, ptr_func
 
 #define HREG(addr, ptr) OFFSET_HREG+addr, REG_RAM, ptr,(ModbusCallback)0
 #define HREG2(addr, ptr) OFFSET_HREG+addr, REG_RAM2, ptr, (ModbusCallback)0

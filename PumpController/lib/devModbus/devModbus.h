@@ -12,6 +12,9 @@
 #define PID_AT_HREG       202
 #define PID_INDEX_HREG    203
 
+#define SENSOR_INDEX_HREG   100
+#define CALC_SMOOTH_HREG    110
+
 #define PID_OUTPUT_HREG   302
 #define PID_KP_HREG       304
 #define PID_KI_HREG       306
