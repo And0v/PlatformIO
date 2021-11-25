@@ -71,9 +71,9 @@ void setOutputPower(float);
 
 void readPIDParams(){
 
-  Serial.print("readPIDParams: update = ");
+  // Serial.print("readPIDParams: update = ");
   word update = mb.Hreg(PID_UPDATE_HREG);
-  Serial.println(update);
+  // Serial.println(update);
   if (update != 0){
     Serial.println("Updating PID");
     if (update & PID_UPADTE_AT){
@@ -236,7 +236,7 @@ void loopPID()
       mb_Hreg(PID_OUTPUT_HREG, (float)output);
     }
   }
-  setOutputPower(pipe.value);
+  setOutputPower(pipe.value+sensor.value);
   mb_Hreg(PID_PWR_SUM_HREG, (float)powerSumReg);
   
   //send-receive with processing if it's time
@@ -281,15 +281,17 @@ void AutoTuneHelper(boolean start)
 
 void SerialSend()
 {
-  Serial.print("setpoint: ");Serial.print(setpoint); Serial.print(" ");
-  Serial.print("input: ");Serial.print(input); Serial.print(" ");
-  Serial.print("output: ");Serial.print(output); Serial.print(" ");
+  // Serial.print("setpoint: ");Serial.print(setpoint); Serial.print(" ");
+  // Serial.print("input: ");Serial.print(input); Serial.print(" ");
+  // Serial.print("output: ");Serial.print(output); Serial.print(" ");
   if(tuning){
     Serial.println("tuning mode");
   } else {
-    Serial.print("kp: ");Serial.print(myPID.GetKp());Serial.print(" ");
-    Serial.print("ki: ");Serial.print(myPID.GetKi());Serial.print(" ");
-    Serial.print("kd: ");Serial.print(myPID.GetKd());Serial.println();
+    // Serial.print("ISum: "); Serial.print(myPID.getISum());Serial.println();
+ 
+    // Serial.print("kp: ");Serial.print(myPID.GetKp());Serial.print(" ");
+    // Serial.print("ki: ");Serial.print(myPID.GetKi());Serial.print(" ");
+    // Serial.print("kd: ");Serial.print(myPID.GetKd());Serial.println();
   }
 }
 
