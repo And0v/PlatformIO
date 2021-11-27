@@ -1,73 +1,68 @@
 #include <Arduino.h>
+
 #include "main.h"
+
+#include "aoCalc.h"
+#include "aoEEPROM.h"
+#include "aoModbusRTU.h"
+#include "auto_tune_pid.h"
 #include "devModbus.h"
 #include "microLAN.h"
 
-ModbusSerial mb;
+ModbusRTU mb;
 
-void setupModbus(){
-  mb.config(&Serial1, 38400, SERIAL_8N1);
+const TRegister ModbusAO::registers[] PROGMEM = {
+    IREG2(100, (word *)(&sensorsValues[0].value)),
+    IREG2(102, (word *)(&sensorsValues[1].value)),
+
+    IREG2(200, (word *)(&sensorsValues[0].value0)),
+    IREG2(202, (word *)(&sensorsValues[1].value0)),
+
+    IREG2(300, (word *)(&input)),
+    IREG2(302, (word *)(&output)),
+
+    IREG(400, &sensorsCalc[0].state),
+    IREG(401, &sensorsCalc[1].state),
+
+    IREG2(500, (word *)(&statistics[0].valueAvg)),
+    IREG2(502, (word *)(&statistics[0].divUp)),
+    IREG2(504, (word *)(&statistics[0].divDown)),
+    IREG2(506, (word *)(&statistics[0].moveUp)),
+    IREG2(508, (word *)(&statistics[0].moveDown)),
+
+    IREG2(600, (word *)(&statistics[1].valueAvg)),
+    IREG2(602, (word *)(&statistics[1].divUp)),
+    IREG2(604, (word *)(&statistics[1].divDown)),
+    IREG2(606, (word *)(&statistics[1].moveUp)),
+    IREG2(608, (word *)(&statistics[1].moveDown)),
+    // 0
+    //  HREG(100, &sensorsCalc[0].port),
+    //  HREG(101, &sensorsCalc[1].port),
+    //  HREG(102, &sensorsCalc[2].port),
+    //  HREG(103, &sensorsCalc[2].port),
+
+    HREG_f(SENSOR_INDEX_HREG + 0, &sensorsCalc[0].port, &rwIndexHreg),
+    HREG_f(SENSOR_INDEX_HREG + 1, &sensorsCalc[1].port, &rwIndexHreg),
+
+    HREG_f(CALC_SMOOTH_HREG + 0, &sensorsCalc[0].smooth, rwSmoothHreg),
+    HREG_f(CALC_SMOOTH_HREG + 1, &sensorsCalc[1].smooth, rwSmoothHreg),
+
+    HREG_f(PID_REINIT_HREG, NULL, &rwUpdateHreg),
+
+    HREG_EEPROM(PID_MOD_HREG, (word *)EE_MODE, &rwModeHreg),
+    // HREG_EEPROM(PID_AT_HREG,        (word *)EE_AT, &rwTuningHreg),
+    HREG2_EEPROM(PID_OUTPUT_HREG, (word *)EE_OUTPUT, &rwOutputHreg),
+    HREG2_EEPROM(PID_KP_HREG, (word *)EE_KP, &rwKpHreg),
+    HREG2_EEPROM(PID_KI_HREG, (word *)EE_KI, &rwKiHreg),
+    HREG2_EEPROM(PID_KD_HREG, (word *)EE_KD, &rwKdHreg),
+    HREG2_EEPROM(PID_SETPNT_HREG, (word *)EE_SETPNT, &rwSetPointHreg),
+
+};
+
+void setupModbus() {
+
+  Serial1.begin(38400);
+  mb.config(&Serial1);
   mb.setSlaveId(11);
-  word startAddr = SENSORS_VALUES_IREG;
-  for (byte i = 0; i < SENSORS_COUNT;++i){
-    mb.addIreg(startAddr++);
-    mb.addIreg(startAddr++);
-  }
-  startAddr = SENSORS_STATUS_IREG;
-  for (byte i = 0; i < SENSORS_COUNT;++i){
-    mb.addIreg(startAddr++);
-  }
-  mb.addHreg(PID_UPDATE_HREG);
-  mb.addHreg(PID_MOD_HREG);
-  mb.addHreg(PID_AT_HREG);
-  mb.addHreg(PID_INDEX_HREG);
-
-  mb.addHreg(PID_INPUT_HREG);
-  mb.addHreg(PID_INPUT_HREG+1);
-  mb.addHreg(PID_OUTPUT_HREG);
-  mb.addHreg(PID_OUTPUT_HREG+1);
-  mb.addHreg(PID_KP_HREG);
-  mb.addHreg(PID_KP_HREG+1);
-  mb.addHreg(PID_KI_HREG);
-  mb.addHreg(PID_KI_HREG+1);
-  mb.addHreg(PID_KD_HREG);
-  mb.addHreg(PID_KD_HREG+1);
-  mb.addHreg(PID_SETPOINT_HREG);
-  mb.addHreg(PID_SETPOINT_HREG+1);
-  mb.addHreg(PID_PWR_SUM_HREG);
-  mb.addHreg(PID_PWR_SUM_HREG+1);
 }
-void loopModbus(){
-  if (Events & EV_CONVERSION_COMPLETE){
-    Events &= ~EV_CONVERSION_COMPLETE;
-    word sensAddr = SENSORS_VALUES_IREG;
-    word sensStAddr = SENSORS_STATUS_IREG;
-    for(byte i = 0; i < SENSORS_COUNT;++i){
-      mb.Ireg(sensStAddr++, sensorsList[i].status);
-      if (sensorsList[i].status == SENSOR_STATUS_OK){
-        word * reg = (word*)&sensorsList[i].value;
-        mb.Ireg(sensAddr++, reg[0]);
-        mb.Ireg(sensAddr++, reg[1]);
-      }else{
-        sensAddr += 2;
-      }
-    }
-
-  }
-  mb.task();
-}
-void mb_Hreg(word offset, word value){
-  mb.Hreg(offset, value);
-}
-void mb_Hreg(word offset, float value){
-  word * reg = (word*)&value;
-  mb.Hreg(offset++, reg[0]);
-  mb.Hreg(offset++, reg[1]);
-}
-float mb_Hreg(word offset){
-  float rst;
-  word * reg = (word*)&rst;
-  reg[0] = mb.Hreg(offset++);
-  reg[1] = mb.Hreg(offset++);
-  return rst;
-}
+void loopModbus() { mb.task(); }
