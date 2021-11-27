@@ -3,24 +3,23 @@
 
 #include <DallasTemperature.h>
 
-#define SENSOR_INSIDE 0
-#define SENSOR_PIPE 1
-#define SENSOR_OUTSIDE 2
-
-#define SENSOR_STATUS_OK 1
-#define SENSOR_STATUS_ERROR 0
+#define SENSOR_PIPE_RETURN 0
+#define SENSOR_PIPE_SUPPLY 1
+#define SENSOR_BOILER 2
+#define SENSOR_OUTSIDE 3
 
 
-#define SENSORS_COUNT 3
+#define SENSORS_COUNT 2
+
 typedef  struct{
-    DeviceAddress address;
+    float value0;
     float value;
-    byte status;
 } SensorDef;
 
-extern SensorDef sensorsList[SENSORS_COUNT];
-
-float getTemp(DeviceAddress & deviceAddress);
+extern SensorDef sensorsValues[SENSORS_COUNT];
+extern CalcDef sensorsCalc[SENSORS_COUNT];
+extern StaticticsDef statistics[SENSORS_COUNT];
+// float getTemp(DeviceAddress & deviceAddress);
 
 void setupOneWire();
 void loopOneWire();

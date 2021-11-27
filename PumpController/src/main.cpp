@@ -1,8 +1,12 @@
 #include <Arduino.h>
+
 #include "main.h"
+
+#include "aoCalc.h"
 #include "auto_tune_pid.h"
-#include "microLAN.h"
 #include "devModbus.h"
+#include "microLAN.h"
+
 
 word Events;
 
@@ -19,26 +23,20 @@ void setup() {
   setupModbus();
   setupPID();
 
-  Serial.println(sizeof(float));
-  Serial.println(sizeof(double));
   Serial.println("Setup compelete!");
   mSeconds = millis();
   Seconds = 0;
   mSec200 = 0;
 }
 
-
-
 void loop() {
 
   long mSec = millis();
-  if ((mSec - mSeconds) > 200){
+  if ((mSec - mSeconds) > 200) {
     mSeconds += 200;
-    if (++mSec200 % 5 == 0 )
-    {
+    if (++mSec200 % 5 == 0) {
       Events |= EV_TIMER_SEC;
-      if (++Seconds % 10 == 0)
-      {
+      if (++Seconds % 10 == 0) {
         Events |= EV_REQUEST_CONVERSION;
       }
     }
