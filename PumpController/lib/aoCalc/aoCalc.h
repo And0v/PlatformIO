@@ -17,8 +17,7 @@ typedef struct{
 
 typedef struct{
     word smooth;
-    word moveUp;
-    word moveDown;
+    int16_t  moveUpDown;
     int16_t value;
     int16_t prevValue;
     int32_t valueSum;

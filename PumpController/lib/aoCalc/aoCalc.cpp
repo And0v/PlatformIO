@@ -42,13 +42,15 @@ void calcStatistics(CalcDef &calc, StaticticsDef &stat, bool init) {
     int16_t delta = calc.adc - stat.value;
     if (delta > 0) {
       if (stat.value > stat.prevValue) {
-        stat.moveUp++;
-        stat.moveDown = 0;
+        stat.moveUpDown++;
+      } else {
+        stat.moveUpDown = 0;
       }
     } else if (delta < 0) {
       if (stat.value < stat.prevValue) {
-        stat.moveUp = 0;
-        stat.moveDown++;
+        stat.moveUpDown--;
+      } else {
+        stat.moveUpDown = 0;
       }
     }
     stat.valueSum -= stat.valueAvg;
@@ -58,9 +60,9 @@ void calcStatistics(CalcDef &calc, StaticticsDef &stat, bool init) {
     int16_t diviation = calc.adc - stat.valueAvg;
 
     if (diviation > 0) {
-      stat.divUp = (stat.divUp + diviation) << 1;
+      stat.divUp = (stat.divUp + diviation) >> 1;
     } else if (diviation < 0) {
-      stat.divDown = (stat.divDown + diviation) << 1;
+      stat.divDown = (stat.divDown + diviation) >> 1;
     }
 
     stat.prevValue = stat.value;

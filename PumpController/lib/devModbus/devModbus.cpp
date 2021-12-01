@@ -9,7 +9,9 @@
 #include "devModbus.h"
 #include "microLAN.h"
 
+#if MODBUSRTU_VERSION	>= 20201031
 ModbusRTU mb;
+#endif
 
 const TRegister ModbusAO::registers[] PROGMEM = {
     IREG2(100, (word *)(&sensorsValues[0].value)),
@@ -24,17 +26,17 @@ const TRegister ModbusAO::registers[] PROGMEM = {
     IREG(400, &sensorsCalc[0].state),
     IREG(401, &sensorsCalc[1].state),
 
-    IREG2(500, (word *)(&statistics[0].valueAvg)),
-    IREG2(502, (word *)(&statistics[0].divUp)),
-    IREG2(504, (word *)(&statistics[0].divDown)),
-    IREG2(506, (word *)(&statistics[0].moveUp)),
-    IREG2(508, (word *)(&statistics[0].moveDown)),
+    IREG(500, (word *)(&statistics[0].valueAvg)),
+    IREG(501, (word *)(&statistics[0].divUp)),
+    IREG(502, (word *)(&statistics[0].divDown)),
+    IREG(503, (word *)(&statistics[0].moveUpDown)),
 
-    IREG2(600, (word *)(&statistics[1].valueAvg)),
-    IREG2(602, (word *)(&statistics[1].divUp)),
-    IREG2(604, (word *)(&statistics[1].divDown)),
-    IREG2(606, (word *)(&statistics[1].moveUp)),
-    IREG2(608, (word *)(&statistics[1].moveDown)),
+
+    IREG(600, (word *)(&statistics[1].valueAvg)),
+    IREG(601, (word *)(&statistics[1].divUp)),
+    IREG(602, (word *)(&statistics[1].divDown)),
+    IREG(603, (word *)(&statistics[1].moveUpDown)),
+
     // 0
     //  HREG(100, &sensorsCalc[0].port),
     //  HREG(101, &sensorsCalc[1].port),
@@ -59,10 +61,18 @@ const TRegister ModbusAO::registers[] PROGMEM = {
 
 };
 
-void setupModbus() {
+void setupModbus()
+{
 
-  Serial1.begin(38400);
+  Serial.println("Modbus Serial1 38400 8n1");
+  Serial.println("Slave address 11");
+  Serial1.begin(38400, SERIAL_8N1);
+  mb.begin(sizeof(ModbusAO::registers) / sizeof(TRegister));
   mb.config(&Serial1);
   mb.setSlaveId(11);
 }
-void loopModbus() { mb.task(); }
+
+void loopModbus()
+{
+  mb.task();
+}
