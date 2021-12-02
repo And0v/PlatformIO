@@ -3,17 +3,17 @@
 
 #include "aoModbusRTU.h"
 
-#define SENSORS_VALUES_IREG 100
-//REGISTERS from 100 to 105 (2 * SENSORS_COUNT)
-#define SENSORS_STATUS_IREG  110
+// #define SENSORS_VALUES_IREG 100
+// //REGISTERS from 100 to 105 (2 * SENSORS_COUNT)
+// #define SENSORS_STATUS_IREG  110
 //REGISTERS from 110 to 113
 #define PID_REINIT_HREG   200
 #define PID_MOD_HREG      201
-#define PID_AT_HREG       202
-#define PID_INDEX_HREG    203
+// #define PID_AT_HREG       202
+// #define PID_INDEX_HREG    203
 
-#define SENSOR_INDEX_HREG   100
-#define CALC_SMOOTH_HREG    110
+ #define SENSOR_INDEX_HREG   100
+ #define CALC_SMOOTH_HREG    110
 
 #define PID_OUTPUT_HREG   302
 #define PID_KP_HREG       304

@@ -14,6 +14,7 @@ ModbusRTU mb;
 #endif
 
 const TRegister ModbusAO::registers[] PROGMEM = {
+//  IREGs
     IREG2(100, (word *)(&sensorsValues[0].value)),
     IREG2(102, (word *)(&sensorsValues[1].value)),
 
@@ -37,11 +38,7 @@ const TRegister ModbusAO::registers[] PROGMEM = {
     IREG(602, (word *)(&statistics[1].divDown)),
     IREG(603, (word *)(&statistics[1].moveUpDown)),
 
-    // 0
-    //  HREG(100, &sensorsCalc[0].port),
-    //  HREG(101, &sensorsCalc[1].port),
-    //  HREG(102, &sensorsCalc[2].port),
-    //  HREG(103, &sensorsCalc[2].port),
+    // HREGs
 
     HREG_f(SENSOR_INDEX_HREG + 0, &sensorsCalc[0].port, &rwIndexHreg),
     HREG_f(SENSOR_INDEX_HREG + 1, &sensorsCalc[1].port, &rwIndexHreg),
@@ -50,9 +47,8 @@ const TRegister ModbusAO::registers[] PROGMEM = {
     HREG_f(CALC_SMOOTH_HREG + 1, &sensorsCalc[1].smooth, rwSmoothHreg),
 
     HREG_f(PID_REINIT_HREG, NULL, &rwUpdateHreg),
-
     HREG_EEPROM(PID_MOD_HREG, (word *)EE_MODE, &rwModeHreg),
-    // HREG_EEPROM(PID_AT_HREG,        (word *)EE_AT, &rwTuningHreg),
+    
     HREG2_EEPROM(PID_OUTPUT_HREG, (word *)EE_OUTPUT, &rwOutputHreg),
     HREG2_EEPROM(PID_KP_HREG, (word *)EE_KP, &rwKpHreg),
     HREG2_EEPROM(PID_KI_HREG, (word *)EE_KI, &rwKiHreg),

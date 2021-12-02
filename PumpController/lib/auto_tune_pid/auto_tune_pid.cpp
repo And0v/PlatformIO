@@ -25,8 +25,6 @@ unsigned long modelTime, serialTime;
 PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
 PID_ATune aTune(&input, &output);
 
-word inputIndex;
-
 void AutoTuneHelper(boolean start);
 void changeAutoTune();
 
@@ -40,7 +38,6 @@ float powerSumReg = 0.0;
 /////////////////////////////////////////////////////
 
 void setupPID() {
-  inputIndex = 0;
   // Setup the pid
   myPID.SetMode(AUTOMATIC);
   myPID.SetOutputLimits(5, 90);
@@ -75,24 +72,25 @@ void loopPID() {
   Events &= ~EV_PID;
 
   SensorDef pipe = sensorsValues[SENSOR_PIPE_SUPPLY];
+  word inputPort = sensorsCalc[SENSOR_PIPE_RETURN].port;
 
-  if ((inputIndex < 0) && (inputIndex >= SENSORS_COUNT)) {
+  if ((inputPort < 0) && (inputPort >= SENSORS_COUNT)) {
     Serial.print("Incorrect inputIndex: ");
-    Serial.println(inputIndex);
+    Serial.println(SENSOR_PIPE_RETURN);
     output = 50;
     setOutputPower(pipe.value);
     return;
   }
 
-  CalcDef sensor = sensorsCalc[inputIndex];
+  CalcDef sensor = sensorsCalc[SENSOR_PIPE_RETURN];
   if (sensor.state != CALC_STATE_OK) {
     Serial.print("Input sensor error! Sensor Index: ");
-    Serial.println(inputIndex);
+    Serial.println(SENSOR_PIPE_RETURN);
     output = 50;
     setOutputPower(pipe.value);
     return;
   }
-  input = sensorsValues[inputIndex].value;
+  input = sensorsValues[SENSOR_PIPE_RETURN].value;
   // mb_Hreg(PID_INPUT_HREG, (float)input);
 
   if (tuning) {
