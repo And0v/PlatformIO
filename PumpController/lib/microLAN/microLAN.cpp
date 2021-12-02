@@ -29,7 +29,7 @@ void setupOneWire() {
   sensors.begin();
   Serial.print("Found ");
   Serial.print(sensors.getDeviceCount());
-  Serial.print(" sensors");
+  Serial.println(" sensors");
 
   // search for devices on the bus and assign based on an index
   for (byte i = 0; i < SENSORS_COUNT; ++i) {
@@ -43,7 +43,9 @@ void setupOneWire() {
       Serial.println(i);
     } else {
       Serial.print(i);
-      Serial.print(": ");
+      Serial.print(": port=");
+      Serial.print(port);
+      Serial.print(" ");
       for (size_t ch = 0; ch < sizeof(DeviceAddress); ch++)
       {
         uint8_t b8 = sensorsPorts[i][ch];
@@ -54,11 +56,13 @@ void setupOneWire() {
       }
       Serial.println();
       
-      // memset(sensorsPorts[port], 0, sizeof(DeviceAddress));
     }
   }
+  sensors.setResolution(12);
+
   sensors.setCheckForConversion(false);
   sensors.setWaitForConversion(false);
+
   Events |= EV_REQUEST_CONVERSION;
 }
 
@@ -80,7 +84,7 @@ void loopOneWire() {
       Serial.print(", ");
      
       word pState = sensorsCalc[i].state;
-      addCalcValue(&sensorsCalc[i], raw, DEVICE_DISCONNECTED_RAW, 32767);
+      addCalcValue(&sensorsCalc[i], raw, DEVICE_DISCONNECTED_RAW, 0x3ff8);
       if (sensorsCalc[i].state == CALC_STATE_OK) {
         sensorsValues[i].value0 = sensors.rawToCelsius(sensorsCalc[i].adc0);
         Serial.print(sensorsValues[i].value0, 2);

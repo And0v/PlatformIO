@@ -12,7 +12,7 @@
 
 byte ATuneModeRemember = 2;
 double input = 0, output = 0, setpoint = 34;
-double kp = 3.92, ki = 0.1, kd = .05;
+double kp = 1.0, ki = 0.01, kd = 0.0001;
 
 double kpmodel = 1.5, taup = 100, theta[50];
 double outputStart = 5;
@@ -84,12 +84,29 @@ void loopPID() {
 
   CalcDef sensor = sensorsCalc[SENSOR_PIPE_RETURN];
   if (sensor.state != CALC_STATE_OK) {
-    Serial.print("Input sensor error! Sensor Index: ");
+    if (sensor.state == CALC_STATE_INIT){
+      Serial.print("Waiting for calc! Sensor Index: ");
+    }else{
+      Serial.print("Input sensor error! Sensor Index: ");
+    }
     Serial.println(SENSOR_PIPE_RETURN);
-    output = 50;
-    setOutputPower(pipe.value);
+    output = 20;
+    setOutputPower(90);
     return;
   }
+  CalcDef sensorS = sensorsCalc[SENSOR_PIPE_SUPPLY];
+  if (sensorS.state != CALC_STATE_OK) {
+    if (sensorS.state == CALC_STATE_INIT){
+      Serial.print("Waiting for calc! Sensor Index: ");
+    }else{
+      Serial.print("Input sensor error! Sensor Index: ");
+    }
+    Serial.println(SENSOR_PIPE_SUPPLY);
+    setOutputPower(90);
+    return;
+  }
+
+
   input = sensorsValues[SENSOR_PIPE_RETURN].value;
   // mb_Hreg(PID_INPUT_HREG, (float)input);
 
