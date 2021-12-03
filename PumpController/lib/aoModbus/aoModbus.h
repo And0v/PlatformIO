@@ -4,7 +4,7 @@
 */
 #ifndef MODBUS_AO_H
 #define MODBUS_AO_H
-#define MODBUS_AO_VERSION 20201031
+#define MODBUS_AO_VERSION 20211102
 
 #define MAX_REGS 32
 #define MAX_FRAME 128
@@ -77,7 +77,9 @@ typedef struct TRegister {
 class ModbusAO {
 private:
   uint8_t _regs_size;
+  bool  _swapWords;
   TRegister _curReg;
+  
 
   void readRegistersInfo(byte *buff, const TRegister *addr);
 
@@ -107,12 +109,15 @@ protected:
   byte *_frame;
   byte _len;
   byte _reply;
+  unsigned long _timeout;
+ 
   void receivePDU(byte *frame);
 
 public:
   static const TRegister registers[];
   ModbusAO();
-  void begin(byte);
+  void begin(byte, unsigned long);
+  void swapMode(bool);
 
   // void addHreg(word offset, word value = 0);
   bool Hreg(word offset, word value);
@@ -132,6 +137,7 @@ public:
   byte wIreg(word offset, byte *buff);
 #endif
   static void *reverseCopy(void *dst, void *src, byte size);
+  static void swapWords(void *);
 };
 
 #endif // MODBUS_AO_H

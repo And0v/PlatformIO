@@ -27,6 +27,7 @@ PID_ATune aTune(&input, &output);
 
 void AutoTuneHelper(boolean start);
 void changeAutoTune();
+void printBytesAsHex(byte * data, byte cnt);
 
 /////////////////////
 const int powerPin = 13;
@@ -75,7 +76,7 @@ void loopPID() {
   word inputPort = sensorsCalc[SENSOR_PIPE_RETURN].port;
 
   if ((inputPort < 0) && (inputPort >= SENSORS_COUNT)) {
-    Serial.print("Incorrect inputIndex: ");
+    Serial.print(F("Incorrect inputIndex: "));
     Serial.println(SENSOR_PIPE_RETURN);
     output = 50;
     setOutputPower(pipe.value);
@@ -85,9 +86,9 @@ void loopPID() {
   CalcDef sensor = sensorsCalc[SENSOR_PIPE_RETURN];
   if (sensor.state != CALC_STATE_OK) {
     if (sensor.state == CALC_STATE_INIT){
-      Serial.print("Waiting for calc! Sensor Index: ");
+      Serial.print(F("Waiting for calc! Sensor Index: "));
     }else{
-      Serial.print("Input sensor error! Sensor Index: ");
+      Serial.print(F("Input sensor error! Sensor Index: "));
     }
     Serial.println(SENSOR_PIPE_RETURN);
     output = 20;
@@ -97,9 +98,9 @@ void loopPID() {
   CalcDef sensorS = sensorsCalc[SENSOR_PIPE_SUPPLY];
   if (sensorS.state != CALC_STATE_OK) {
     if (sensorS.state == CALC_STATE_INIT){
-      Serial.print("Waiting for calc! Sensor Index: ");
+      Serial.print(F("Waiting for calc! Sensor Index: "));
     }else{
-      Serial.print("Input sensor error! Sensor Index: ");
+      Serial.print(F("Input sensor error! Sensor Index: "));
     }
     Serial.println(SENSOR_PIPE_SUPPLY);
     setOutputPower(90);
@@ -174,7 +175,7 @@ void SerialSend() {
   // Serial.print("input: ");Serial.print(input); Serial.print(" ");
   // Serial.print("output: ");Serial.print(output); Serial.print(" ");
   if (tuning) {
-    Serial.println("tuning mode");
+    Serial.println(F("tuning mode"));
   } else {
     // Serial.print("ISum: "); Serial.print(myPID.getISum());Serial.println();
 
@@ -225,24 +226,24 @@ void setOutputPower(float pipe) {
 void readEEPROMData();
 
 bool rwModeHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwMODE: ");
+  Serial.print(F("- rwMODE: "));
   if (len != 2) {
     return false;
   } else if ((mode == EE_READ)) {
     int md = myPID.GetMode();
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(md);
     *((word *)data) = md;
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     word value = *((word *)data);
     Serial.print(value);
     if (((value & ~1) == 0) && ((word)myPID.GetMode() != value)) {
       myPID.SetMode(value);
       rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
@@ -250,23 +251,23 @@ bool rwModeHreg(byte mode, word offset, byte *data, word len) {
 }
 
 bool rwOutputHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwOUTPUT: ");
+  Serial.print(F("- rwOUTPUT: "));
   if (len != 4) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(output, 3);
     *((float *)data) = output;
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     float value = *((float *)data);
     Serial.print(value, 3);
     if ((value != NAN) && (value >= 0) && (value <= 100)) {
       output = value;
       rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
@@ -274,23 +275,23 @@ bool rwOutputHreg(byte mode, word offset, byte *data, word len) {
 }
 
 bool rwSetPointHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwSETPOINT: ");
+  Serial.print(F("- rwSETPOINT: "));
   if (len != 4) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(setpoint, 3);
     *((float *)data) = setpoint;
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     float value = *((float *)data);
     Serial.print(value, 3);
     if ((value != NAN) && (value >= 25) && (value <= 80)) {
       setpoint = value;
       rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
@@ -298,72 +299,77 @@ bool rwSetPointHreg(byte mode, word offset, byte *data, word len) {
 }
 
 bool rwKpHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwKP: ");
+  Serial.print(F("- rwKP: "));
   if (len != 4) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(kp, 3);
     *((float *)data) = kp;
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     float value = *((float *)data);
     Serial.print(value, 3);
     if ((value != NAN) && (value > 0.0)) {
       kp = value;
       myPID.SetTunings(kp, ki, kd);
       rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
   return true;
 }
 bool rwKiHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwKI: ");
+  Serial.print(F("- rwKI: "));
   if (len != 4) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(ki, 3);
     *((float *)data) = ki;
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     float value = *((float *)data);
     Serial.print(value, 3);
     if ((value != NAN) && (value >= 0.0)) {
       ki = value;
       myPID.SetTunings(kp, ki, kd);
       rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
   return true;
 }
 bool rwKdHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwKD: ");
+  Serial.print(F("- rwKD: "));
   if (len != 4) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
-    Serial.println(kd, 3);
+    Serial.print(F("read, "));
+    Serial.print(kd, 3);
     *((float *)data) = kd;
+    Serial.print(F(", "));
+    printBytesAsHex(data, 4);
+    Serial.println();
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     float value = *((float *)data);
     Serial.print(value, 3);
+    Serial.print(F(", "));
+    printBytesAsHex(data, 4);
     if ((value != NAN) && (value >= 0.0)) {
       kd = value;
       myPID.SetTunings(kp, ki, kd);
       rwEEMEM(EE_WRITE, offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
@@ -371,11 +377,11 @@ bool rwKdHreg(byte mode, word offset, byte *data, word len) {
 }
 bool rwSmoothHreg(byte mode, word offset, byte *data, word len) {
   word *smooth = (word *)offset;
-  Serial.print("- rwSmooth: ");
+  Serial.print(F("- rwSmooth: "));
   if (len != 2) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(*smooth, 3);
     *((word *)data) = *smooth;
   } else if (mode == EE_WRITE) {
@@ -385,15 +391,15 @@ bool rwSmoothHreg(byte mode, word offset, byte *data, word len) {
         ee_offset = EE_SMOOTH + i * 2;
       }
     }
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     word value = *((word *)data);
     Serial.print(value);
     if ((value < 10) && (ee_offset != 65535)) {
       *smooth = value;
       rwEEMEM(EE_WRITE, ee_offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
@@ -402,11 +408,11 @@ bool rwSmoothHreg(byte mode, word offset, byte *data, word len) {
 
 bool rwIndexHreg(byte mode, word offset, byte *data, word len) {
   word *index = (word *)offset;
-  Serial.print("- rwIndex: ");
+  Serial.print(F("- rwIndex: "));
   if (len != 2) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(*index, 3);
     *((word *)data) = *index;
   } else if (mode == EE_WRITE) {
@@ -416,15 +422,15 @@ bool rwIndexHreg(byte mode, word offset, byte *data, word len) {
         ee_offset = EE_INDEX + i * 2;
       }
     }
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     word value = *((word *)data);
     Serial.print(value);
     if ((value < 10) && (ee_offset != 65535)) {
       *index = value;
       rwEEMEM(EE_WRITE, ee_offset, data, len);
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
@@ -432,34 +438,32 @@ bool rwIndexHreg(byte mode, word offset, byte *data, word len) {
 }
 
 bool rwUpdateHreg(byte mode, word offset, byte *data, word len) {
-  Serial.print("- rwREINIT: ");
+  Serial.print(F("- rwREINIT: "));
   if (len != 2) {
     return false;
   } else if ((mode == EE_READ)) {
-    Serial.print("read, ");
+    Serial.print(F("read, "));
     Serial.println(0);
     *((word *)data) = 0;
   } else if (mode == EE_WRITE) {
-    Serial.print("write, ");
+    Serial.print(F("write, "));
     word value = *((word *)data);
     Serial.print(value);
+    Serial.print(F(", "));
+    printBytesAsHex(data, 2);
     if (value == 0x55AA) {
       readEEPROMData();
-      Serial.println(" - OK");
+      Serial.println(F(" - OK"));
     } else {
-      Serial.println(" - Error");
+      Serial.println(F(" - Error"));
       return false;
     }
   }
   return true;
 }
 void readEEPROMData() {
-  Serial.print("readEEPROMData");
+  Serial.print(F("readEEPROMData"));
   word value;
-  // rwEEMEM(EE_READ, EE_AT, (byte *)&tuning, 2);
-  // if (tuning > 1){
-  //   tuning = 0;
-  // }
   rwEEMEM(EE_READ, EE_MODE, (byte *)&value, 2);
   if (value > 1) {
     value = 0;
@@ -495,4 +499,15 @@ void readEEPROMData() {
     kd = 0;
   }
   myPID.SetTunings(kp, ki, kd);
+}
+
+void printBytesAsHex(byte * data, byte cnt){
+  for (int i = 0; i < cnt; ++i) {
+    byte b = data[i];
+    if (b < 0x10){
+      Serial.print("0");
+    }
+    Serial.print(b, 16);
+    Serial.print(" ");
+  }
 }

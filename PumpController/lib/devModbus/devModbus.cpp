@@ -60,12 +60,16 @@ const TRegister ModbusAO::registers[] PROGMEM = {
 void setupModbus()
 {
 
-  Serial.println("Modbus Serial1 38400 8n1");
-  Serial.println("Slave address 11");
+  Serial.println(F("Modbus Serial1 38400 8n1"));
+  Serial.println(F("Slave address 11"));
   Serial1.begin(38400, SERIAL_8N1);
-  mb.begin(sizeof(ModbusAO::registers) / sizeof(TRegister));
+  mb.begin(
+    sizeof(ModbusAO::registers) / sizeof(TRegister),
+    912// 3.5 symbols for 38400 bps
+  );
   mb.config(&Serial1);
   mb.setSlaveId(11);
+  mb.swapMode(true);
 }
 
 void loopModbus()
