@@ -127,7 +127,7 @@ void loopPID() {
       // mb_Hreg(PID_OUTPUT_HREG, (float)output);
     }
   }
-  setOutputPower(pipe.value);
+  setOutputPower(pipe.value+input);
   // mb_Hreg(PID_PWR_SUM_HREG, (float)powerSumReg);
 
   // send-receive with processing if it's time
