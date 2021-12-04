@@ -27,7 +27,7 @@ PID_ATune aTune(&input, &output);
 
 void AutoTuneHelper(boolean start);
 void changeAutoTune();
-void printBytesAsHex(byte * data, byte cnt);
+void printBytesAsHex(byte *data, byte cnt);
 
 /////////////////////
 const int powerPin = 13;
@@ -37,13 +37,15 @@ unsigned long powerTimeLast = 0;
 float powerSum = 0.0;
 float powerSumReg = 0.0;
 /////////////////////////////////////////////////////
+void readEEPROMData();
 
 void setupPID() {
   // Setup the pid
-  myPID.SetMode(AUTOMATIC);
   myPID.SetOutputLimits(5, 90);
   myPID.SetSampleTime(powerPeriod);
-  myPID.SetTunings(kp, ki, kd);
+  readEEPROMData();
+  // myPID.SetMode(AUTOMATIC);
+  // myPID.SetTunings(kp, ki, kd);
 
   if (tuning) {
     tuning = false;
@@ -53,13 +55,6 @@ void setupPID() {
   digitalWrite(powerPin, 1);
   pinMode(powerPin, OUTPUT);
 
-  // mb_Hreg(PID_AT_HREG, (word)(tuning?1:0));
-  // mb_Hreg(PID_MOD_HREG, (word)myPID.GetMode());
-  // mb_Hreg(PID_OUTPUT_HREG, (float)output);
-  // mb_Hreg(PID_KI_HREG, (float)myPID.GetKi());
-  // mb_Hreg(PID_KP_HREG, (float)myPID.GetKp());
-  // mb_Hreg(PID_KD_HREG, (float)myPID.GetKd());
-  // mb_Hreg(PID_SETPOINT_HREG, (float)setpoint);
   serialTime = 0;
 }
 void SerialSend();
@@ -85,9 +80,9 @@ void loopPID() {
 
   CalcDef sensor = sensorsCalc[SENSOR_PIPE_RETURN];
   if (sensor.state != CALC_STATE_OK) {
-    if (sensor.state == CALC_STATE_INIT){
+    if (sensor.state == CALC_STATE_INIT) {
       Serial.print(F("Waiting for calc! Sensor Index: "));
-    }else{
+    } else {
       Serial.print(F("Input sensor error! Sensor Index: "));
     }
     Serial.println(SENSOR_PIPE_RETURN);
@@ -97,16 +92,15 @@ void loopPID() {
   }
   CalcDef sensorS = sensorsCalc[SENSOR_PIPE_SUPPLY];
   if (sensorS.state != CALC_STATE_OK) {
-    if (sensorS.state == CALC_STATE_INIT){
+    if (sensorS.state == CALC_STATE_INIT) {
       Serial.print(F("Waiting for calc! Sensor Index: "));
-    }else{
+    } else {
       Serial.print(F("Input sensor error! Sensor Index: "));
     }
     Serial.println(SENSOR_PIPE_SUPPLY);
     setOutputPower(90);
     return;
   }
-
 
   input = sensorsValues[SENSOR_PIPE_RETURN].value;
   // mb_Hreg(PID_INPUT_HREG, (float)input);
@@ -222,8 +216,6 @@ void setOutputPower(float pipe) {
   }
   powerTimeLast = powerTimeNow;
 }
-
-void readEEPROMData();
 
 bool rwModeHreg(byte mode, word offset, byte *data, word len) {
   Serial.print(F("- rwMODE: "));
@@ -462,49 +454,72 @@ bool rwUpdateHreg(byte mode, word offset, byte *data, word len) {
   return true;
 }
 void readEEPROMData() {
-  Serial.print(F("readEEPROMData"));
+  Serial.println(F("readEEPROMData"));
   word value;
-  rwEEMEM(EE_READ, EE_MODE, (byte *)&value, 2);
-  if (value > 1) {
-    value = 0;
-  }
-  myPID.SetMode(value);
 
   for (byte i = 0; i < SENSORS_COUNT; ++i) {
     rwEEMEM(EE_READ, EE_INDEX, (byte *)&value, 2);
     if (value >= SENSORS_COUNT) {
       value = i;
     }
+    Serial.print(F("sensorsCalc["));
+    Serial.print(i);
+    Serial.print(F("].port: "));
+    Serial.println(value);
     sensorsCalc[i].port = value;
   }
 
-  rwEEMEM(EE_READ, EE_OUTPUT, (byte *)&output, 4);
-  if ((isnan(output)) || (output < 0) || (output > 100)) {
-    output = 0;
+  rwEEMEM(EE_READ, EE_MODE, (byte *)&value, 2);
+  if (value > 1) {
+    value = 0;
   }
+  Serial.print(F("PID mode: "));
+  Serial.println(value);
+  myPID.SetMode(value);
+
+
   rwEEMEM(EE_READ, EE_SETPNT, (byte *)&setpoint, 4);
   if ((isnan(setpoint)) || (setpoint < 30) || (setpoint > 60)) {
-    setpoint = 30;
+    setpoint = 34;
   }
+  Serial.print(F("setpoint: "));
+  Serial.println(setpoint);  
+  
+  rwEEMEM(EE_READ, EE_OUTPUT, (byte *)&output, 4);
+  if ((isnan(output)) || (output < 0) || (output > 100)) {
+    output = 20;
+  }
+  Serial.print(F("output: "));
+  Serial.println(output);
+
   rwEEMEM(EE_READ, EE_KP, (byte *)&kp, 4);
   if ((isnan(kp)) || (kp <= 0)) {
     kp = 1;
   }
+  Serial.print(F("PID kP: "));
+  Serial.println(kp, 4);  
+
   rwEEMEM(EE_READ, EE_KI, (byte *)&ki, 4);
   if ((isnan(ki)) || (ki < 0)) {
     ki = 0;
   }
+  Serial.print(F("PID kI: "));
+  Serial.println(ki, 4);  
+
   rwEEMEM(EE_READ, EE_KD, (byte *)&kd, 4);
   if ((isnan(kd)) || (kd < 0)) {
     kd = 0;
   }
+  Serial.print(F("PID kD: "));
+  Serial.println(kd, 4);  
+
   myPID.SetTunings(kp, ki, kd);
 }
 
-void printBytesAsHex(byte * data, byte cnt){
+void printBytesAsHex(byte *data, byte cnt) {
   for (int i = 0; i < cnt; ++i) {
     byte b = data[i];
-    if (b < 0x10){
+    if (b < 0x10) {
       Serial.print("0");
     }
     Serial.print(b, 16);
