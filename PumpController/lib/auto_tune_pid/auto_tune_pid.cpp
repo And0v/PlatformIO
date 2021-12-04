@@ -41,7 +41,7 @@ void readEEPROMData();
 
 void setupPID() {
   // Setup the pid
-  myPID.SetOutputLimits(5, 90);
+  myPID.SetOutputLimits(10, 150);
   myPID.SetSampleTime(powerPeriod);
   readEEPROMData();
   // myPID.SetMode(AUTOMATIC);
