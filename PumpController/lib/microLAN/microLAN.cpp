@@ -14,8 +14,8 @@ SensorDef sensorsValues[SENSORS_COUNT];
 DeviceAddress sensorsPorts[SENSORS_COUNT];
 StaticticsDef statistics[SENSORS_COUNT] = {
     // smooth, up, down, value, prev, sum, avg, dUp, dDown
-    {4, 0, 0, 0, 0, 0, 0, 0},
-    {4, 0, 0, 0, 0, 0, 0, 0}};
+    {9, 0, 0, 0, 0, 0, 0, 0},
+    {9, 0, 0, 0, 0, 0, 0, 0}};
 CalcDef sensorsCalc[SENSORS_COUNT] = {
     // port; status; smooth; adc0; adc; adcSum;
     // port - index of sensors
