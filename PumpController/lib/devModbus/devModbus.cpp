@@ -23,6 +23,8 @@ const TRegister ModbusAO::registers[] PROGMEM = {
 
     IREG2(300, (word *)(&input)),
     IREG2(302, (word *)(&output)),
+    IREG2(304, (word *)(&periodPowerSum)),
+    IREG2(306, (word *)(&periodPowerTime)),
 
     IREG(400, &sensorsCalc[0].state),
     IREG(401, &sensorsCalc[1].state),
@@ -43,8 +45,11 @@ const TRegister ModbusAO::registers[] PROGMEM = {
     HREG_f(SENSOR_INDEX_HREG + 0, &sensorsCalc[0].port, &rwIndexHreg),
     HREG_f(SENSOR_INDEX_HREG + 1, &sensorsCalc[1].port, &rwIndexHreg),
 
-    HREG_f(CALC_SMOOTH_HREG + 0, &sensorsCalc[0].smooth, rwSmoothHreg),
-    HREG_f(CALC_SMOOTH_HREG + 1, &sensorsCalc[1].smooth, rwSmoothHreg),
+    HREG_f(CALC_SMOOTH_HREG + 0, &sensorsCalc[0].smooth, &rwCalcSmoothHreg),
+    HREG_f(CALC_SMOOTH_HREG + 1, &sensorsCalc[1].smooth, &rwCalcSmoothHreg),
+
+    HREG_f(STATISTICS_SMOOTH_HREG + 0, (word*)&statistics[0], &rwStatisticsSmoothHreg),
+    HREG_f(STATISTICS_SMOOTH_HREG + 1, (word*)&statistics[1], &rwStatisticsSmoothHreg),
 
     HREG_f(PID_REINIT_HREG, NULL, &rwUpdateHreg),
     HREG_EEPROM(PID_MOD_HREG, (word *)EE_MODE, &rwModeHreg),

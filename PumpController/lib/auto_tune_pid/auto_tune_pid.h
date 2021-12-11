@@ -2,13 +2,16 @@
 #define _auto_tune_pid_h
 
 extern double input, output, setpoint;
+extern double periodPowerSum;
+extern unsigned long periodPowerTime;
 extern double kp,ki,kd;
 
 
 void setupPID();
 void loopPID();
 
-bool rwSmoothHreg(byte mode, word offset, byte *data, word len);
+bool rwCalcSmoothHreg(byte mode, word offset, byte *data, word len);
+bool rwStatisticsSmoothHreg(byte mode, word offset, byte *data, word len);
 bool rwTuningHreg(byte mode, word offset, byte *data, word len);
 bool rwUpdateHreg(byte mode, word offset, byte *data, word len);
 bool rwModeHreg(byte mode, word offset, byte *data, word len);

@@ -31,11 +31,14 @@ void printBytesAsHex(byte *data, byte cnt);
 
 /////////////////////
 const int powerPin = 13;
-unsigned long powerPeriod = 60000;
-unsigned long powerTime = 0;
-unsigned long powerTimeLast = 0;
-float powerSum = 0.0;
-float powerSumReg = 0.0;
+const unsigned long powerPeriod = 60000;
+unsigned long powerTime0 = 0;
+unsigned long powerTime1 = 0;
+unsigned long timeDelta0_prev = 0;
+uint8_t powerPinValue;
+double powerSum = 0.0;
+double periodPowerSum = 0.0;
+unsigned long periodPowerTime = 0;
 /////////////////////////////////////////////////////
 void readEEPROMData();
 
@@ -52,7 +55,8 @@ void setupPID() {
     changeAutoTune();
     tuning = true;
   }
-  digitalWrite(powerPin, 1);
+  powerPinValue = 1;
+  digitalWrite(powerPin, powerPinValue);
   pinMode(powerPin, OUTPUT);
 
   serialTime = 0;
@@ -127,7 +131,7 @@ void loopPID() {
       // mb_Hreg(PID_OUTPUT_HREG, (float)output);
     }
   }
-  setOutputPower(pipe.value+input);
+  setOutputPower(pipe.value + input);
   // mb_Hreg(PID_PWR_SUM_HREG, (float)powerSumReg);
 
   // send-receive with processing if it's time
@@ -192,29 +196,45 @@ void setOutputPower(float pipe) {
 
   unsigned long now = millis();
 
-  if (powerTime == 0) {
-    powerTime = now;
+  if (powerTime0 == 0) {
+    powerTime0 = now;
+    powerTime1 = now;
+    powerSum = 0;
+    timeDelta0_prev = powerPeriod;
   }
-  if ((now - powerTime) > powerPeriod) {
-    powerTime += powerPeriod;
+  unsigned long timeDelta0 = now - powerTime0;
+  if (timeDelta0 >= powerPeriod) {
+    powerTime0 += powerPeriod;
+    timeDelta0 -= powerPeriod;
+    powerTime1 = now;
   }
-  unsigned long powerTimeNow = now - powerTime;
-  if (powerTimeLast > powerTimeNow) {
-    powerTimeLast = 0;
+
+  if (timeDelta0_prev > timeDelta0) {
+    timeDelta0_prev = timeDelta0;
+    if (powerPinValue == 0) {
+      periodPowerTime = powerPeriod;
+      periodPowerSum = powerSum;
+    }
     powerSum = 0;
   }
+  unsigned long timeDelta = timeDelta0 - timeDelta0_prev;
+  float powerSumPlus = ((float)timeDelta) * pipe / ((float)powerPeriod);
+  powerSum += powerSumPlus;
 
-  powerSum +=
-      ((float)(powerTimeNow - powerTimeLast)) * pipe / ((float)powerPeriod);
-
-  if (powerSum < output) {
-    powerSumReg = powerSum;
-    digitalWrite(powerPin, 0);
-  } else {
-    powerSumReg = 0.0;
-    digitalWrite(powerPin, 1);
+  uint8_t pinValue = (powerSum < output) ? 0 : 1;
+  if (powerPinValue != pinValue){
+    digitalWrite(powerPin, pinValue);
+    Serial.print("powerPin: ");
+    Serial.println(pinValue);
   }
-  powerTimeLast = powerTimeNow;
+  if (pinValue == 0) {
+  } else if (powerPinValue != pinValue) {
+    periodPowerSum = powerSum;
+    periodPowerTime = now - powerTime1;
+  }
+
+  powerPinValue = pinValue;
+  timeDelta0_prev = timeDelta0;
 }
 
 bool rwModeHreg(byte mode, word offset, byte *data, word len) {
@@ -320,12 +340,12 @@ bool rwKiHreg(byte mode, word offset, byte *data, word len) {
     return false;
   } else if ((mode == EE_READ)) {
     Serial.print(F("read, "));
-    Serial.println(ki, 3);
+    Serial.println(ki, 4);
     *((float *)data) = ki;
   } else if (mode == EE_WRITE) {
     Serial.print(F("write, "));
     float value = *((float *)data);
-    Serial.print(value, 3);
+    Serial.print(value, 4);
     if ((value != NAN) && (value >= 0.0)) {
       ki = value;
       myPID.SetTunings(kp, ki, kd);
@@ -344,7 +364,7 @@ bool rwKdHreg(byte mode, word offset, byte *data, word len) {
     return false;
   } else if ((mode == EE_READ)) {
     Serial.print(F("read, "));
-    Serial.print(kd, 3);
+    Serial.print(kd, 4);
     *((float *)data) = kd;
     Serial.print(F(", "));
     printBytesAsHex(data, 4);
@@ -352,7 +372,7 @@ bool rwKdHreg(byte mode, word offset, byte *data, word len) {
   } else if (mode == EE_WRITE) {
     Serial.print(F("write, "));
     float value = *((float *)data);
-    Serial.print(value, 3);
+    Serial.print(value, 4);
     Serial.print(F(", "));
     printBytesAsHex(data, 4);
     if ((value != NAN) && (value >= 0.0)) {
@@ -367,9 +387,9 @@ bool rwKdHreg(byte mode, word offset, byte *data, word len) {
   }
   return true;
 }
-bool rwSmoothHreg(byte mode, word offset, byte *data, word len) {
+bool rwCalcSmoothHreg(byte mode, word offset, byte *data, word len) {
   word *smooth = (word *)offset;
-  Serial.print(F("- rwSmooth: "));
+  Serial.print(F("- rwCalcSmooth: "));
   if (len != 2) {
     return false;
   } else if ((mode == EE_READ)) {
@@ -389,6 +409,30 @@ bool rwSmoothHreg(byte mode, word offset, byte *data, word len) {
     if ((value < 10) && (ee_offset != 65535)) {
       *smooth = value;
       rwEEMEM(EE_WRITE, ee_offset, data, len);
+      Serial.println(F(" - OK"));
+    } else {
+      Serial.println(F(" - Error"));
+      return false;
+    }
+  }
+  return true;
+}
+bool rwStatisticsSmoothHreg(byte mode, word offset, byte *data, word len) {
+  StaticticsDef *stat = (StaticticsDef *)offset;
+  Serial.print(F("- rwStatisticsSmooth: "));
+  if (len != 2) {
+    return false;
+  } else if ((mode == EE_READ)) {
+    Serial.print(F("read, "));
+    Serial.println(stat->smooth);
+    *((word *)data) = stat->smooth;
+  } else if (mode == EE_WRITE) {
+    Serial.print(F("write, "));
+    word value = *((word *)data);
+    Serial.print(value);
+    if ((value >= 4) && (value <= 12)) {
+      stat->smooth = value;
+      stat->valueSum = stat->valueAvg << stat->smooth;
       Serial.println(F(" - OK"));
     } else {
       Serial.println(F(" - Error"));
@@ -477,14 +521,13 @@ void readEEPROMData() {
   Serial.println(value);
   myPID.SetMode(value);
 
-
   rwEEMEM(EE_READ, EE_SETPNT, (byte *)&setpoint, 4);
   if ((isnan(setpoint)) || (setpoint < 30) || (setpoint > 60)) {
     setpoint = 34;
   }
   Serial.print(F("setpoint: "));
-  Serial.println(setpoint);  
-  
+  Serial.println(setpoint);
+
   rwEEMEM(EE_READ, EE_OUTPUT, (byte *)&output, 4);
   if ((isnan(output)) || (output < 0) || (output > 100)) {
     output = 20;
@@ -497,21 +540,21 @@ void readEEPROMData() {
     kp = 1;
   }
   Serial.print(F("PID kP: "));
-  Serial.println(kp, 4);  
+  Serial.println(kp, 4);
 
   rwEEMEM(EE_READ, EE_KI, (byte *)&ki, 4);
   if ((isnan(ki)) || (ki < 0)) {
     ki = 0;
   }
   Serial.print(F("PID kI: "));
-  Serial.println(ki, 4);  
+  Serial.println(ki, 4);
 
   rwEEMEM(EE_READ, EE_KD, (byte *)&kd, 4);
   if ((isnan(kd)) || (kd < 0)) {
     kd = 0;
   }
   Serial.print(F("PID kD: "));
-  Serial.println(kd, 4);  
+  Serial.println(kd, 4);
 
   myPID.SetTunings(kp, ki, kd);
 }
